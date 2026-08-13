@@ -1,0 +1,68 @@
+views:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'src/pages/**/*'
+                - 'src/widgets/**/*'
+                - 'src/app/layouts/**/*'
+
+features:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'src/features/**/*'
+
+domain:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'src/entities/**/*'
+
+ui-kit:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'src/shared/ui/**/*'
+                - 'src/app/styles/**/*'
+                - '.storybook/**/*'
+                - '**/*.{css,scss}'
+
+core-logic:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'src/shared/{api,lib,config,providers}/**/*'
+                - 'src/app/providers/**/*'
+
+dependencies:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'package.json'
+                - 'pnpm-lock.yaml'
+                - 'pnpm-workspace.yaml'
+
+devops:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'infra/**/*'
+                - '.github/workflows/**/*'
+                - 'Dockerfile*'
+                - '.dockerignore'
+
+testing:
+    - changed-files:
+          - any-glob-to-any-file:
+                - 'test/**/*'
+                - 'src/**/*.spec.{ts,js}'
+
+config:
+    - changed-files:
+          - any-glob-to-any-file:
+                - '*.config.*'
+                - 'tsconfig.json'
+                - '.env*'
+                - '.eslintrc*'
+                - '.prettier*'
+          - all-globs-to-all-files:
+                - '!package.json'
+
+documentation:
+    - changed-files:
+          - any-glob-to-any-file:
+                - '**/*.md'
+                - 'LICENSE'

@@ -1,0 +1,42 @@
+{
+    "name": "frontend",
+    "version": "0.1.0",
+    "private": true,
+    "license": "Apache-2.0",
+    "type": "module",
+    "scripts": {
+        "build": "next build",
+        "format": "oxfmt --write .",
+        "format:check": "oxfmt --check .",
+        "lint": "oxlint",
+        "lint:fix": "oxlint --fix",
+        "lint:fsd": "steiger src",
+        "lint:fsd:watch": "steiger src --watch",
+        "lint:types": "tsc --noEmit",
+        "prepare": "husky",
+        "start:dev": "next dev",
+        "start:prod": "next start"
+    },
+    "dependencies": {
+        "next": "16.3.0",
+        "react": "19.2.8",
+        "react-dom": "19.2.8"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^21.2.2",
+        "@commitlint/config-conventional": "^21.2.2",
+        "@feature-sliced/steiger-plugin": "^0.7.0",
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "babel-plugin-react-compiler": "1.0.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.3.0",
+        "oxfmt": "^0.63.0",
+        "oxlint": "^1.78.0",
+        "steiger": "^0.6.0",
+        "tailwindcss": "^4",
+        "typescript": "^5"
+    }
+}

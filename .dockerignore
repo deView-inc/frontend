@@ -1,0 +1,72 @@
+# Зависимости (всегда ставим заново внутри контейнера)
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Сборка и кэш
+.next
+out
+dist
+build
+*.tsbuildinfo
+
+# Логи и отчеты
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Секреты и конфиги окружения
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+.env*.local
+!.env.example
+
+# Тесты и покрытие
+coverage
+test-results
+__tests__
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Docker файлы (не нужны внутри самого образа)
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Редакторы и ОС
+.vscode
+.idea
+.DS_Store
+*.swp
+Thumbs.db
+
+# Прочее
+README.md
+LICENSE
+.github
+.husky
+
+# Storybook
+.storybook
+storybook-static
+temp-storybook
+*.stories.tsx
+*.stories.ts
+*.stories.mdx

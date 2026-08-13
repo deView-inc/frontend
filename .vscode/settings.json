@@ -1,0 +1,19 @@
+{
+    "oxc.enable": true,
+    "oxc.typeAware": true,
+    "oxc.fmt.disableNestedConfig": false,
+    "oxc.path.oxfmt": "./node_modules/oxfmt/bin/oxfmt",
+    "oxc.path.oxlint": "./node_modules/oxlint/bin/oxlint",
+
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.formatOnSaveMode": "file",
+
+    "editor.codeActionsOnSave": {
+        "source.format.oxc": "always",
+        "source.fixAll.oxlint": "always"
+    }
+}

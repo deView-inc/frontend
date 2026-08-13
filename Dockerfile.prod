@@ -1,0 +1,66 @@
+FROM node:24-alpine AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack prepare pnpm@10.30.1 --activate
+WORKDIR /app
+
+FROM base AS deps
+ENV CI=true
+RUN apk add --no-cache libc6-compat
+
+COPY pnpm-lock.yaml ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
+
+COPY package.json ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --offline --frozen-lockfile
+
+FROM base AS builder
+
+ARG NEXT_PUBLIC_APP_URL
+ARG NEXT_PUBLIC_API_BASE_URL
+ARG NEXT_PUBLIC_FARO_URL
+ARG NEXT_PUBLIC_FARO_APP_VERSION
+ARG NEXT_PUBLIC_APP_ENV
+ARG NEXT_PUBLIC_METRICS_ENABLED
+ARG SKIP_ENV_VALIDATION=false
+
+ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL \
+    NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL \
+    NEXT_PUBLIC_FARO_URL=$NEXT_PUBLIC_FARO_URL \
+    NEXT_PUBLIC_FARO_APP_NAME="frontend" \
+    NEXT_PUBLIC_FARO_APP_NAMESPACE="frontend" \
+    NEXT_PUBLIC_FARO_APP_VERSION=$NEXT_PUBLIC_FARO_APP_VERSION \
+    NEXT_PUBLIC_APP_ENV=$NEXT_PUBLIC_APP_ENV \
+    SKIP_ENV_VALIDATION=$SKIP_ENV_VALIDATION \
+    NEXT_TELEMETRY_DISABLED=1 \
+    NEXT_PUBLIC_METRICS_ENABLED=$NEXT_PUBLIC_METRICS_ENABLED
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+RUN --mount=type=cache,target=/app/.next/cache pnpm run build
+
+FROM node:24-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000 \
+    HOSTNAME="0.0.0.0"
+
+ENV OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
+    OTEL_SERVICE_NAME="frontend-ssr" \
+    OTEL_RESOURCE_ATTRIBUTES="service.namespace=frontend"
+
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 frontend
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=frontend:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=frontend:nodejs /app/.next/static ./.next/static
+
+USER frontend
+
+EXPOSE $PORT
+
+CMD ["node", "server.js"]
