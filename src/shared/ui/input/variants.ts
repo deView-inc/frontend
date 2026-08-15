@@ -1,7 +1,7 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 
 export const inputGroupAddonVariants = cva(
-    "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-xs font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-none [&>svg:not([class*='size-'])]:size-4",
+    "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-xs font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded [&>svg:not([class*='size-'])]:size-4",
     {
         defaultVariants: {
             align: 'inline-start',
@@ -29,9 +29,9 @@ export const inputGroupButtonVariants = cva('flex items-center gap-2 text-xs sha
     variants: {
         size: {
             'icon-sm': 'size-7 p-0 has-[>svg]:p-0',
-            'icon-xs': 'size-6 rounded-none p-0 has-[>svg]:p-0',
+            'icon-xs': 'size-6 rounded p-0 has-[>svg]:p-0',
             sm: 'gap-1',
-            xs: "h-6 gap-1 rounded-none px-1.5 [&>svg:not([class*='size-'])]:size-3.5",
+            xs: "h-6 gap-1 rounded px-1.5 [&>svg:not([class*='size-'])]:size-3.5",
         },
     },
 });
