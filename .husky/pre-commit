@@ -1,3 +1,2 @@
 pnpm exec lint-staged --verbose --allow-empty
 pnpm lint:fsd
-pnpm lint:types

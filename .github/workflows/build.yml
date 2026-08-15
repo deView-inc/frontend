@@ -1,0 +1,39 @@
+name: 'Code Quality & Build'
+
+on:
+    push:
+        branches: [master, dev]
+    pull_request:
+        branches: [master, dev]
+        types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    security:
+        uses: deView-inc/.github/.github/workflows/codeql.yml@master
+        with:
+            languages: javascript-typescript
+            build-mode: none
+        secrets:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    docker:
+        needs: security
+        uses: deView-inc/.github/.github/workflows/build.yml@master
+        with:
+            image-name: ${{ github.repository }}
+            dockerfile: ./Dockerfile.prod
+            context: .
+            build-args: |
+                {
+                    "NODE_ENV": "production"
+                }
+            push-on-branches: 'master,dev'
+            tag-latest: true
+            tag-sha: true
+            tag-branch: true
+        secrets:
+            github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -29,7 +29,7 @@ core-logic:
                 - 'src/shared/{api,lib,config,providers}/**/*'
                 - 'src/app/providers/**/*'
 
-dependencies:
+docs:
     - changed-files:
           - any-glob-to-any-file:
                 - 'package.json'
@@ -44,7 +44,7 @@ devops:
                 - 'Dockerfile*'
                 - '.dockerignore'
 
-testing:
+test:
     - changed-files:
           - any-glob-to-any-file:
                 - 'test/**/*'
@@ -61,7 +61,7 @@ config:
           - all-globs-to-all-files:
                 - '!package.json'
 
-documentation:
+deps:
     - changed-files:
           - any-glob-to-any-file:
                 - '**/*.md'
