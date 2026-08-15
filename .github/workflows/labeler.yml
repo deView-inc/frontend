@@ -1,0 +1,17 @@
+name: 'Labeler'
+
+on:
+    pull_request:
+        branches: [master, dev]
+        types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+    contents: read
+    pull-requests: write
+
+jobs:
+    label:
+        if: github.event_name == 'pull_request'
+        uses: deView-inc/.github/.github/workflows/pr-labeler.yml@master
+        with:
+            config-path: .github/labeler.yml
