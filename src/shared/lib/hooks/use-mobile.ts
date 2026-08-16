@@ -1,3 +1,4 @@
+'use client';
 // oxlint-disable no-undef
 import * as React from 'react';
 

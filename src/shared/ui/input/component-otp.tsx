@@ -1,3 +1,5 @@
+'use client';
+
 import { MinusIcon } from '@phosphor-icons/react';
 import { OTPInput, OTPInputContext } from 'input-otp';
 import * as React from 'react';
