@@ -128,4 +128,14 @@ export default defineConfig({
     ],
 
     plugins: ['react-perf', 'nextjs', 'react', 'typescript'],
+
+    overrides: [
+        {
+            files: ['scripts/**'],
+            env: { node: true },
+            rules: {
+                'no-console': 'off',
+            },
+        },
+    ],
 });

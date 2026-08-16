@@ -16,7 +16,8 @@
         "start:dev": "next dev",
         "start:prod": "next start",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "story:create": "node scripts/create-story.mjs"
     },
     "dependencies": {
         "@base-ui/react": "^1.7.0",
