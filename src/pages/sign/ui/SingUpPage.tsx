@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataSignUp: Metadata = {
     description:
         'Зарегистрируйтесь на платформе deView для проведения онлайн-собеседований. Начните использовать совместный редактор кода, видеозвонки и оценку навыков.',
     keywords: [

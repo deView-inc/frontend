@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataArena: Metadata = {
     description:
         'Соревновательная дуэль 1x1 на скорость и корректность решения. Рейтинг ELO, реалтайм баттлы и проверка алгоритмических навыков.',
     keywords: [

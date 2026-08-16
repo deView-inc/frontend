@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataAiSolo: Metadata = {
     description:
         'Практикуйте навыки собеседования с AI-ассистентом 24/7. Адаптивная сложность, персонализированные вопросы и мгновенный фидбэк.',
     keywords: [

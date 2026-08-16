@@ -1,1 +1,2 @@
-export { PracticeBehavioralPage as default, metadata } from '~&/pages/practice';
+export { metadataBehavioral as metadata } from '~&/pages/practice';
+export { PracticeBehavioralPage as default } from '~&/pages/practice';

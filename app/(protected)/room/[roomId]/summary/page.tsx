@@ -1,1 +1,2 @@
-export { RoomSummaryPage as default, metadata } from '~&/pages/room';
+export { generateMetadataSummary as generateMetadata } from '~&/pages/room';
+export { RoomSummaryPage as default } from '~&/pages/room';

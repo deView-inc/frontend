@@ -1,6 +1,25 @@
+import { execSync } from 'child_process';
 import path from 'path';
 
 import type { NextConfig } from 'next';
+
+import packageJson from './package.json';
+
+const webpack = require('webpack');
+
+function getBuildId() {
+    const parts: string[] = [];
+    parts.push(packageJson.version);
+    try {
+        const hash = execSync('git rev-parse --short HEAD').toString().trim();
+        parts.push(hash);
+    } catch {
+        parts.push('no-git-hash');
+    }
+    return parts.join('-');
+}
+
+const BUILD_ID = getBuildId();
 
 const nextConfig: NextConfig = {
     reactCompiler: true,
@@ -9,7 +28,13 @@ const nextConfig: NextConfig = {
     turbopack: {
         root: __dirname,
     },
-    webpack: (config, { isServer }) => {
+    env: {
+        NEXT_PUBLIC_BUILD_ID: BUILD_ID,
+        NEXT_PUBLIC_BUILD_TIME: new Date().toISOString(),
+        NEXT_PUBLIC_BUILD_VERSION: packageJson.version,
+    },
+    generateBuildId: async () => BUILD_ID,
+    webpack: (config) => {
         config.plugins.push(
             new webpack.ContextReplacementPlugin(
                 /\@phosphor-icons[\/\\]react[\/\\]dist[\/\\]ssr/,

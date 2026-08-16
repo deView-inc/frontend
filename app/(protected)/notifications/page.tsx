@@ -1,1 +1,1 @@
-export { NotificationsPage as default, metadata } from '~&/pages/notifications';
+export { default, metadata } from '~&/pages/notifications';

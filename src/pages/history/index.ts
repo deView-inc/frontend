@@ -1,2 +1,2 @@
-export * from './ui/HistoryPage';
-export * from './ui/HistorySessionPage';
+export { HistoryPage, metadata } from './ui/HistoryPage';
+export { HistorySessionPage, generateMetadata } from './ui/HistorySessionPage';

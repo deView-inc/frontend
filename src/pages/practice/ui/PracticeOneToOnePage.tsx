@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataOneToOne: Metadata = {
     description:
         'Проведите живое собеседование с реальным партнёром. Видеосвязь, общий редактор кода и взаимный фидбэк для максимальной реалистичности.',
     keywords: [

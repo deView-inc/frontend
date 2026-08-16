@@ -1,1 +1,1 @@
-export { LeadersPage as default, metadata } from '~&/pages/leaders';
+export { default, metadata } from '~&/pages/leaders';

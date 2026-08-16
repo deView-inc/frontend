@@ -1,1 +1,1 @@
-export * from './ui/LeadersPage';
+export { LeadersPage as default, metadata } from './ui/LeadersPage';

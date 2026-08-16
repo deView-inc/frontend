@@ -1,1 +1,2 @@
-export { RoomPage as default, metadata } from '~&/pages/room';
+export { metadata } from '~&/pages/room';
+export { RoomPage as default } from '~&/pages/room';

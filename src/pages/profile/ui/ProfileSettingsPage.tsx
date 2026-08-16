@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataProfileSettings: Metadata = {
     description:
         'Управление настройками аккаунта: личные данные, уведомления, конфиденциальность, безопасность и предпочтения.',
     keywords: [

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataJoin: Metadata = {
     description:
         'Введите код комнаты или ссылку для присоединения к собеседованию. Быстрый доступ к интервью.',
     keywords: [

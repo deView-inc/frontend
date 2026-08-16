@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataSignIn: Metadata = {
     description:
         'Войдите в свой аккаунт deView для проведения собеседований, просмотра статистики и управления комнатами.',
     keywords: ['вход', 'авторизация', 'логин', 'deView вход', 'войти в аккаунт'],

@@ -1,2 +1,2 @@
-export * from './ui/ProfilePage';
-export * from './ui/ProfileSettingsPage';
+export { ProfilePage, metadata } from './ui/ProfilePage';
+export { ProfileSettingsPage, metadataProfileSettings } from './ui/ProfileSettingsPage';

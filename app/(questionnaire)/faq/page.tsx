@@ -1,1 +1,1 @@
-export { FaqPage as default, metadata } from '~&/pages/faq';
+export { default, metadata } from '~&/pages/faq';

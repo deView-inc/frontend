@@ -1,1 +1,1 @@
-export { HistorySessionPage as default, metadata } from '~&/pages/history';
+export { HistorySessionPage as default, generateMetadata } from '~&/pages/history';

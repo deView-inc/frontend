@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataLanguage: Metadata = {
     description:
         'Отработка технического английского: произношение, грамматика, лексика в реальном времени. Тренировка по уровням CEFR.',
     keywords: [

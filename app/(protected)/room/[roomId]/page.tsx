@@ -1,1 +1,2 @@
-export { RoomSessionPage as default, metadata } from '~&/pages/room';
+export { generateMetadata } from '~&/pages/room';
+export { RoomSessionPage as default } from '~&/pages/room';

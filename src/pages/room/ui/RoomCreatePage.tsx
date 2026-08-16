@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataCreate: Metadata = {
     description:
         'Настройте параметры комнаты для собеседования: формат, участники, продолжительность и дополнительные опции.',
     keywords: [

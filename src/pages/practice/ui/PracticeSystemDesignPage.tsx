@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataSystemDesign: Metadata = {
     description:
         'Архитектурное собеседование с интерактивной доской. Разбор trade-offов, оценка ёмкости и проектирование систем в реальном времени.',
     keywords: [

@@ -1,1 +1,2 @@
-export { StatsPage as default, metadata } from '~&/pages/stats';
+export { metadata } from '~&/pages/stats';
+export { StatsPage as default } from '~&/pages/stats';

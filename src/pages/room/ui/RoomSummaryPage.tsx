@@ -6,7 +6,7 @@ interface RoomSummaryPageProps {
     };
 }
 
-export async function generateMetadata({ params }: RoomSummaryPageProps): Promise<Metadata> {
+export async function generateMetadataSummary({ params }: RoomSummaryPageProps): Promise<Metadata> {
     const { id } = params;
 
     return {

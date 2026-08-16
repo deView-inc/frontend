@@ -1,1 +1,2 @@
-export { PracticeLanguagePage as default, metadata } from '~&/pages/practice';
+export { metadataLanguage as metadata } from '~&/pages/practice';
+export { PracticeLanguagePage as default } from '~&/pages/practice';

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataBehavioral: Metadata = {
     description:
         'Поведенческие вопросы по методу STAR с разбором по компетенциям. Прокачка мягких навыков и подготовка к HR-интервью.',
     keywords: [

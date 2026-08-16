@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadataPanel: Metadata = {
     description:
         'Финальный раунд собеседования как в реальной компании. Панель из нескольких интервьюеров, консенсус-оценка и комплексный подход.',
     keywords: [

@@ -1,1 +1,2 @@
-export { PracticePanelPage as default, metadata } from '~&/pages/practice';
+export { metadataPanel as metadata } from '~&/pages/practice';
+export { PracticePanelPage as default } from '~&/pages/practice';
