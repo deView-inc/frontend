@@ -1,0 +1,37 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    description:
+        '7 форматов для подготовки к техническим интервью: от живых собеседований до соревновательной арены. Выберите свой формат.',
+    keywords: [
+        'практика собеседований',
+        'подготовка к интервью',
+        'тренировка навыков',
+        'техническое интервью',
+        'онлайн собеседование',
+    ],
+    openGraph: {
+        description: 'Выберите формат тренировки для подготовки к интервью',
+        images: [
+            {
+                alt: 'Практика собеседований',
+                height: 630,
+                url: 'https://app.deview.ru/og/practice.jpg',
+                width: 1200,
+            },
+        ],
+        title: 'Практика собеседований - 7 форматов',
+        url: 'https://app.deview.ru/practice',
+    },
+    title: 'Практика собеседований',
+    twitter: {
+        card: 'summary_large_image',
+        description: 'Выберите формат тренировки для подготовки к интервью',
+        images: ['https://app.deview.ru/og/practice.jpg'],
+        title: 'Практика собеседований - 7 форматов',
+    },
+};
+
+export function PracticePage() {
+    return <div>PracticePage</div>;
+}
