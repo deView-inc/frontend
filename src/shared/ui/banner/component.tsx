@@ -51,8 +51,8 @@ export const Banner = ({
                 </div>
             )}
             <div>
-                <h2 className="text-chart-1 text-3xl">{title}</h2>
-                <p className="text-chart-2 text-sm">{description}</p>
+                <h2 className="text-foreground text-3xl">{title}</h2>
+                <p className="text-muted-foreground text-sm">{description}</p>
             </div>
         </div>
 

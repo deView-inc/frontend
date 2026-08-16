@@ -1,3 +1,5 @@
+'use client';
+
 import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 import { CaretDownIcon, CaretUpIcon } from '@phosphor-icons/react';
 import { cn } from '~&/shared/lib/utils';

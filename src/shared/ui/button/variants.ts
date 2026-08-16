@@ -34,4 +34,5 @@ export const buttonVariants = cva(
         },
     },
 );
+
 export type TButtonVariants = VariantProps<typeof buttonVariants>;
