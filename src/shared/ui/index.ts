@@ -7,6 +7,7 @@ export * from './calendar';
 export * from './card';
 export * from './chart';
 export * from './checkbox';
+export * from './command/component';
 export * from './dialog';
 export * from './dropdown-menu';
 export * from './empty';
