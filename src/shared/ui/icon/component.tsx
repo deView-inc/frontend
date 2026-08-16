@@ -22,7 +22,7 @@ type IconPropsWithFallback = BaseIconProps & {
 const ICON_CACHE = new Map<PhosphorIconName, React.ComponentType<IconProps>>();
 
 /**
- * LazyIcon — это React-компонент, который динамически загружает и рендерит иконки
+ * LazyIcon - это React-компонент, который динамически загружает и рендерит иконки
  * из библиотеки `@phosphor-icons/react`. Для оптимизации производительности
  * и уменьшения повторных импортов используется кэширование.
  *
@@ -69,7 +69,7 @@ function DynamicIcon(props: DynamicIconProps) {
 }
 
 /**
- * Icon — компонент для рендеринга иконки с поддержкой ленивой загрузки и состояния загрузки.
+ * Icon - компонент для рендеринга иконки с поддержкой ленивой загрузки и состояния загрузки.
  *
  * Использует React.Suspense для отображения заглушки (fallback) на время
  * динамической загрузки иконки из библиотеки @phosphor-icons/react.
