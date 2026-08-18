@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import { Section } from '~&/shared/ui';
+import { Description } from '~&/shared/ui/description';
+import { Title } from '~&/shared/ui/title';
 
 export const metadata: Metadata = {
     description:
@@ -33,5 +36,13 @@ export const metadata: Metadata = {
 };
 
 export function PracticePage() {
-    return <div>PracticePage</div>;
+    return (
+        <Section>
+            <Title>Режимы собеседований</Title>
+            <Description>
+                7 форматов практики — от живого 1-to-1 до соревновательной арены. Выберите то, что
+                нужно прямо сейчас.
+            </Description>
+        </Section>
+    );
 }
