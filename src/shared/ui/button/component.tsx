@@ -5,8 +5,8 @@ import { type TButtonVariants, buttonVariants } from './variants';
 
 function Button({
     className,
-    variant = 'default',
-    size = 'default',
+    variant = 'primary',
+    size = 'medium',
     ...props
 }: ButtonPrimitive.Props & TButtonVariants) {
     return (
