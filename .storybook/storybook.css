@@ -1,0 +1,5 @@
+/* Тёмный фон в зоне превью на страницах Docs */
+.sbdocs-preview,
+.docs-story {
+    background-color: #0a0b0d;
+}
