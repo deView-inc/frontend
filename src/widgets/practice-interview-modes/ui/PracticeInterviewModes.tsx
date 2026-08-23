@@ -1,8 +1,6 @@
 'use client';
 
-import { Description } from '~&/shared/ui/description';
 import { Section } from '~&/shared/ui/section';
-import { Title } from '~&/shared/ui/title';
 import { PracticeInterviewHeader } from '~&/widgets/practice-interview-modes/ui/parts/PracticeInterviewHeader';
 
 import { practiceModes } from '../lib';
