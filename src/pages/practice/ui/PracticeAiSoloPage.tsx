@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { PracticeInterviewAiSolo } from '~&/widgets/practice-interview-modes';
 
 export const metadataAiSolo: Metadata = {
     description:
@@ -33,5 +34,5 @@ export const metadataAiSolo: Metadata = {
 };
 
 export function PracticeAiSoloPage() {
-    return <div>PracticeAiSoloPage</div>;
+    return <PracticeInterviewAiSolo />;
 }

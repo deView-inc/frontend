@@ -56,18 +56,19 @@ export const Banner = ({
             </div>
         </div>
 
-        <div className="relative z-10 shrink-0">
-            <Button
-                type="button"
-                onClick={onButtonClick}
-                variant="primary"
-                size="large"
-            >
-                {buttonLabel}
-                {showArrow && (
+        {showArrow && (
+            <div className="relative z-10 shrink-0">
+                <Button
+                    type="button"
+                    onClick={onButtonClick}
+                    variant="primary"
+                    size="large"
+                >
+                    {buttonLabel}
+
                     <ArrowRightIcon className="h-4 w-4 transition-transform group-hover/button:translate-x-0.5" />
-                )}
-            </Button>
-        </div>
+                </Button>
+            </div>
+        )}
     </div>
 );

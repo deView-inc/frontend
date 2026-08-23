@@ -26,7 +26,7 @@ ui-kit:
 core-logic:
     - changed-files:
           - any-glob-to-any-file:
-                - 'src/shared/{api,lib,config,providers}/**/*'
+                - 'src/shared/{api,snippets,config,providers}/**/*'
                 - 'src/app/providers/**/*'
 
 docs:
