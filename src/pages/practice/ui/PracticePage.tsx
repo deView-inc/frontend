@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { PracticeInterviewModes } from '~&/widgets/practice-interview-modes';
 
 export const metadata: Metadata = {
     description:
@@ -33,5 +34,5 @@ export const metadata: Metadata = {
 };
 
 export function PracticePage() {
-    return <div>PracticePage</div>;
+    return <PracticeInterviewModes />;
 }

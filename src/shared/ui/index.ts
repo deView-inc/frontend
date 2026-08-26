@@ -25,6 +25,7 @@ export * from './skeleton';
 export * from './spinner';
 export * from './switch';
 export * from './textarea';
+export * from './tabs';
 export * from './tooltip';
 export * from './content-card';
 export * from './banner';

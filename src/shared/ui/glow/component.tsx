@@ -24,11 +24,11 @@ export const Glow = ({
         aria-hidden
         className={cn('pointer-events-none absolute rounded-full', className)}
         style={{
-            width,
-            height: height ?? width,
             background: color,
-            opacity,
             filter: `blur(${blur}px)`,
+            height: height ?? width,
+            opacity,
+            width,
             ...style,
         }}
     />

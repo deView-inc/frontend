@@ -1,6 +1,11 @@
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
+    env: {
+        browser: true,
+        es2022: true,
+        node: true,
+    },
     categories: {
         correctness: 'error',
         perf: 'warn',

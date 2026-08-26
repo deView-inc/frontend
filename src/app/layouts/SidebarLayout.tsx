@@ -12,7 +12,7 @@ export function SidebarLayout({
             <Sidebar />
             <SidebarInset>
                 <Header />
-                <div className="h-full overflow-x-hidden p-5">{children}</div>
+                <main className="min-h-0 flex-1 overflow-x-hidden p-7">{children}</main>
             </SidebarInset>
         </SidebarProvider>
     );
