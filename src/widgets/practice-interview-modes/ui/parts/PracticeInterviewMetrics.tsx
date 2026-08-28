@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const PracticeInterviewMetrics = ({ list, className }: Props) => (
-    <Card className={cn('p-6 max-w-[660px] rounded-md', className)}>
+    <Card className={cn('p-6 rounded-md', className)}>
         <h3 className="text-sm font-bold">Языковые метрики</h3>
         <div className="flex flex-col gap-4">
             {list.map(({ label, value }) => (
