@@ -1,7 +1,7 @@
 import type { PracticeInterviewTabsOption } from '~&/widgets/practice-interview-modes/ui/parts/PracticeInterviewTabsGroup';
 
 export interface PracticeInterviewTabsConfig {
-    id: 'language' | 'level' | 'style';
+    id: string;
     title: string;
     description?: string;
     options: readonly PracticeInterviewTabsOption[];
@@ -45,3 +45,15 @@ export const aiSoloTabs: readonly PracticeInterviewTabsConfig[] = [
         title: 'Стиль AI-интервьюера',
     },
 ];
+
+export const languageRoomTabs: PracticeInterviewTabsConfig = {
+    defaultValue: 'englishB2',
+    id: 'languageLevel',
+    options: [
+        { label: 'English · B2', value: 'englishB2' },
+        { label: 'English · C1', value: 'englishC1' },
+        { label: 'Deutsch · B1', value: 'deutschB1' },
+        { label: 'Español · B1', value: 'españolB1' },
+    ],
+    title: 'Целевой язык и уровень',
+};
