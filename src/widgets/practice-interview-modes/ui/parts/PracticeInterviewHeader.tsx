@@ -1,5 +1,4 @@
 import React from 'react';
-import { cn } from '~&/shared/lib/utils';
 import { Description } from '~&/shared/ui/description';
 import { Title } from '~&/shared/ui/title';
 
