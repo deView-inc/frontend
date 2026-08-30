@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import { PracticeInterviewAiSolo } from '~&/widgets/practice-interview-modes';
+import {
+    PracticeInterviewAiSolo,
+    PracticeInterviewHeader,
+} from '~&/widgets/practice-interview-modes';
 
 export const metadataAiSolo: Metadata = {
     description:
@@ -34,5 +37,13 @@ export const metadataAiSolo: Metadata = {
 };
 
 export function PracticeAiSoloPage() {
-    return <PracticeInterviewAiSolo />;
+    return (
+        <>
+            <PracticeInterviewHeader
+                title="Практика с AI"
+                description="Тренируйтесь в любое время — без ожидания партнёра онлайн"
+            />
+            <PracticeInterviewAiSolo />
+        </>
+    );
 }

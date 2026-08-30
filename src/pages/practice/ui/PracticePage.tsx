@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import { PracticeInterviewModes } from '~&/widgets/practice-interview-modes';
+import {
+    PracticeInterviewHeader,
+    PracticeInterviewModes,
+} from '~&/widgets/practice-interview-modes';
 
 export const metadata: Metadata = {
     description:
@@ -34,5 +37,14 @@ export const metadata: Metadata = {
 };
 
 export function PracticePage() {
-    return <PracticeInterviewModes />;
+    return (
+        <>
+            <PracticeInterviewHeader
+                title="Режимы собеседований"
+                description="7 форматов практики — от живого 1-to-1 до соревновательной арены. Выберите то, что
+                нужно прямо сейчас."
+            />
+            <PracticeInterviewModes />
+        </>
+    );
 }

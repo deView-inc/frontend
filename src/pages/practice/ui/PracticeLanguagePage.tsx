@@ -1,4 +1,8 @@
 import type { Metadata } from 'next';
+import {
+    PracticeInterviewHeader,
+    PracticeInterviewLanguage,
+} from '~&/widgets/practice-interview-modes';
 
 export const metadataLanguage: Metadata = {
     description:
@@ -34,5 +38,18 @@ export const metadataLanguage: Metadata = {
 };
 
 export function PracticeLanguagePage() {
-    return <div>PracticeLanguagePage</div>;
+    return (
+        <>
+            <PracticeInterviewHeader
+                title="Language Room · Technical English"
+                description="Отработка речи для технического интервью на английском"
+                sideElement={
+                    <div className="bg-primary text-primary-foreground ml-[50px] w-fit rounded-md px-3 py-1 text-nowrap sm:ml-[100px]">
+                        <span className="animate-blink-caret">●</span> 14:02
+                    </div>
+                }
+            />
+            <PracticeInterviewLanguage className="mt-5" />
+        </>
+    );
 }

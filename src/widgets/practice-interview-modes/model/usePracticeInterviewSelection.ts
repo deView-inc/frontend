@@ -1,18 +1,24 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { aiSoloTabs } from '../lib';
+import type { PracticeInterviewTabsConfig } from '../lib';
 
-export function usePracticeInterviewSelection() {
+export function usePracticeInterviewSelection(tabs: readonly PracticeInterviewTabsConfig[]) {
     const [selection, setSelection] = useState<Record<string, string>>(() =>
-        Object.fromEntries(aiSoloTabs.map((tab) => [tab.id, tab.defaultValue])),
+        Object.fromEntries(tabs.map((tab) => [tab.id, tab.defaultValue])),
     );
 
-    const setValue = (id: string, value: string) =>
-        setSelection((prev) => ({ ...prev, [id]: value }));
+    const setValue = useCallback(
+        (id: string, value: string) => setSelection((prev) => ({ ...prev, [id]: value })),
+        [],
+    );
 
-    const getLabel = (id: string) =>
-        aiSoloTabs.find((tab) => tab.id === id)?.options.find((o) => o.value === selection[id])
-            ?.label ?? '';
+    const getLabel = useCallback(
+        (id: string) =>
+            tabs
+                .find((tab) => tab.id === id)
+                ?.options.find((option) => option.value === selection[id])?.label ?? '',
+        [tabs, selection],
+    );
 
     return { getLabel, selection, setValue };
 }

@@ -38,7 +38,6 @@ export const PracticeInterviewBanner = ({
             className,
         )}
     >
-        {/* Фоновое свечение, включается через glowClassName, напр. "from-primary/40 to-transparent" */}
         {glowClassName && (
             <div
                 className={cn(
@@ -63,7 +62,7 @@ export const PracticeInterviewBanner = ({
             {badgeLabel && (
                 <span
                     className={cn(
-                        'rounded-full px-3 py-1 text-xs font-medium text-black',
+                        'rounded-full px-3 py-1 text-xs font-medium text-foreground',
                         badgeColor,
                     )}
                 >

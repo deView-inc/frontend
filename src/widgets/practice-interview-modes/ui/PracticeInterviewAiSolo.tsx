@@ -3,38 +3,28 @@
 import { ArrowRightIcon, SparkleIcon, UserIcon } from '@phosphor-icons/react';
 import { Button, Card } from '~&/shared/ui';
 import { Section } from '~&/shared/ui/section';
-import { PracticeInterviewBanner } from '~&/widgets/practice-interview-modes/ui/parts/PracticeInterviewBanner';
 
-import type { InterviewStyle } from '../lib';
-import { aiSoloTabs } from '../lib';
+import { type InterviewStyle, aiSoloTabs } from '../lib';
 import { usePracticeInterviewSelection } from '../model/usePracticeInterviewSelection';
 import { PracticeInterviewAiChat } from './parts/PracticeInterviewAiChat';
+import { PracticeInterviewBanner } from './parts/PracticeInterviewBanner';
 import { PracticeInterviewCodeWindow } from './parts/PracticeInterviewCodeWindow';
-import { PracticeInterviewHeader } from './parts/PracticeInterviewHeader';
 import { PracticeInterviewTabsGroup } from './parts/PracticeInterviewTabsGroup';
 
 export function PracticeInterviewAiSolo() {
-    const { selection, setValue, getLabel } = usePracticeInterviewSelection();
+    const { selection, setValue, getLabel } = usePracticeInterviewSelection(aiSoloTabs);
 
     return (
         <Section className="max-w-[1400px]">
-            <PracticeInterviewHeader
-                title="Практика с AI"
-                description="Тренируйтесь в любое время — без ожидания партнёра онлайн"
-            />
-
             <Card className="mt-5 grid grid-cols-1 gap-4 rounded-md p-5 sm:gap-8 sm:px-7 sm:py-8 md:grid-cols-2">
                 {aiSoloTabs.map(({ id, className, ...tabs }) => (
-                    <div
+                    <PracticeInterviewTabsGroup
                         key={id}
                         className={className}
-                    >
-                        <PracticeInterviewTabsGroup
-                            {...tabs}
-                            value={selection[id]}
-                            onValueChange={(value) => setValue(id, value)}
-                        />
-                    </div>
+                        {...tabs}
+                        value={selection[id]}
+                        onValueChange={(value) => setValue(id, value)}
+                    />
                 ))}
             </Card>
             <div className="mt-5 flex flex-col gap-5 sm:flex-row">

@@ -1,14 +1,20 @@
+import React from 'react';
 import { Description } from '~&/shared/ui/description';
 import { Title } from '~&/shared/ui/title';
 
 interface Props {
     title: string;
     description: string;
+    sideElement?: React.ReactNode;
 }
 
-export const PracticeInterviewHeader = ({ title, description }: Props) => (
+export const PracticeInterviewHeader = ({ title, description, sideElement }: Props) => (
     <>
-        <Title>{title}</Title>
+        <div className="inline-flex place-items-center">
+            <Title>{title}</Title>
+            {sideElement}
+        </div>
+
         <Description>{description}</Description>
     </>
 );
