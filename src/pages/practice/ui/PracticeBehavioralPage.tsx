@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { PracticeInterviewBehavioral } from '~&/widgets/practice-interview-modes';
 
 export const metadataBehavioral: Metadata = {
     description:
@@ -33,5 +34,9 @@ export const metadataBehavioral: Metadata = {
 };
 
 export function PracticeBehavioralPage() {
-    return <div>PracticeBehavioralPage</div>;
+    return (
+        <>
+            <PracticeInterviewBehavioral />
+        </>
+    );
 }

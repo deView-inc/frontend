@@ -1,4 +1,4 @@
-import type { PracticeInterviewTabsOption } from '~&/widgets/practice-interview-modes/ui/parts/PracticeInterviewTabsGroup';
+import type { PracticeInterviewTabsOption } from '../ui/parts/PracticeInterviewTabsGroup';
 
 export interface PracticeInterviewTabsConfig {
     id: string;
@@ -56,4 +56,17 @@ export const languageRoomTabs: PracticeInterviewTabsConfig = {
         { label: 'Español · B1', value: 'españolB1' },
     ],
     title: 'Целевой язык и уровень',
+};
+
+export const behavioralRoomTabs: PracticeInterviewTabsConfig = {
+    defaultValue: 'leadership',
+    id: 'Behavioral',
+    options: [
+        { label: 'Лидерство', value: 'leadership' },
+        { label: 'Разрешение конфликтов', value: 'conflictResolution' },
+        { label: 'Ownership', value: 'ownership' },
+        { label: 'Коммуникация', value: 'communication' },
+        { label: 'Работа с неудачей', value: 'dealingFailure' },
+    ],
+    title: 'Фокус компетенций на сессию',
 };

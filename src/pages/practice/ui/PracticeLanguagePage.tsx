@@ -41,6 +41,7 @@ export function PracticeLanguagePage() {
     return (
         <>
             <PracticeInterviewHeader
+                className="grid-cols-2"
                 title="Language Room · Technical English"
                 description="Отработка речи для технического интервью на английском"
                 sideElement={

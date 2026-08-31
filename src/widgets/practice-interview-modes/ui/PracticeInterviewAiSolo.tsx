@@ -12,7 +12,7 @@ import { PracticeInterviewCodeWindow } from './parts/PracticeInterviewCodeWindow
 import { PracticeInterviewTabsGroup } from './parts/PracticeInterviewTabsGroup';
 
 export function PracticeInterviewAiSolo() {
-    const { selection, setValue, getLabel } = usePracticeInterviewSelection(aiSoloTabs);
+    const { tabsState } = usePracticeInterviewSelection(aiSoloTabs);
 
     return (
         <Section className="max-w-[1400px]">
@@ -22,8 +22,8 @@ export function PracticeInterviewAiSolo() {
                         key={id}
                         className={className}
                         {...tabs}
-                        value={selection[id]}
-                        onValueChange={(value) => setValue(id, value)}
+                        value={tabsState[id].value}
+                        onValueChange={tabsState[id].setValue}
                     />
                 ))}
             </Card>
@@ -56,9 +56,9 @@ export function PracticeInterviewAiSolo() {
             <div className="mt-8 flex flex-col gap-5 sm:mt-5 md:h-[600px] md:flex-row">
                 <PracticeInterviewCodeWindow className="md:h-full md:min-w-0 md:flex-1" />
                 <PracticeInterviewAiChat
-                    subtitle={`${getLabel('style')} · ${getLabel('level')}`}
-                    style={selection.style as InterviewStyle}
-                    className="md:min-w-0 md:flex-1"
+                    subtitle={`${tabsState.style.label} · ${tabsState.level.label}`}
+                    source={{ mode: 'solo', style: tabsState.style.value as InterviewStyle }}
+                    className="md:max-w-[420px] md:min-w-0 md:flex-1"
                 />
             </div>
             <div className="mt-3 text-center xl:text-end">

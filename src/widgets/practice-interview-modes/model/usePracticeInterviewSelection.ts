@@ -1,6 +1,12 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import type { PracticeInterviewTabsConfig } from '../lib';
+
+interface PracticeInterviewTabState {
+    value: string;
+    label: string;
+    setValue: (value: string) => void;
+}
 
 export function usePracticeInterviewSelection(tabs: readonly PracticeInterviewTabsConfig[]) {
     const [selection, setSelection] = useState<Record<string, string>>(() =>
@@ -12,13 +18,26 @@ export function usePracticeInterviewSelection(tabs: readonly PracticeInterviewTa
         [],
     );
 
-    const getLabel = useCallback(
-        (id: string) =>
-            tabs
-                .find((tab) => tab.id === id)
-                ?.options.find((option) => option.value === selection[id])?.label ?? '',
-        [tabs, selection],
+    const tabsState = useMemo<Record<string, PracticeInterviewTabState>>(
+        () =>
+            Object.fromEntries(
+                tabs.map((tab) => [
+                    tab.id,
+                    {
+                        label: tab.options.find((o) => o.value === selection[tab.id])?.label ?? '',
+                        setValue: (value: string) => setValue(tab.id, value),
+                        value: selection[tab.id],
+                    },
+                ]),
+            ),
+        [tabs, selection, setValue],
     );
 
-    return { getLabel, selection, setValue };
+    return { selection, setValue, tabsState };
+}
+
+export function usePracticeInterviewTab(tab: PracticeInterviewTabsConfig) {
+    const { tabsState } = usePracticeInterviewSelection([tab]);
+
+    return tabsState[tab.id];
 }
