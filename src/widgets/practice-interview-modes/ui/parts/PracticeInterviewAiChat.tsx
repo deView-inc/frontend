@@ -3,7 +3,7 @@
 import { ArrowRightIcon, SparkleIcon } from '@phosphor-icons/react';
 import { cn } from '~&/shared/lib/utils';
 import { Input } from '~&/shared/ui';
-import type { InterviewStyle } from '~&/widgets/practice-interview-modes/lib';
+import type { FakeReplySource } from '~&/widgets/practice-interview-modes/lib';
 import { useAiChat } from '~&/widgets/practice-interview-modes/model/useAiChat';
 
 type ChatMessage = ReturnType<typeof useAiChat>['messages'][number];
@@ -12,16 +12,16 @@ type ScrollRef = ReturnType<typeof useAiChat>['scrollRef'];
 interface Props {
     className?: string;
     subtitle: string;
-    style: InterviewStyle;
+    source: FakeReplySource;
 }
 
-export const PracticeInterviewAiChat = ({ className, subtitle, style }: Props) => {
-    const { messages, value, setValue, scrollRef, handleSend } = useAiChat(style);
+export const PracticeInterviewAiChat = ({ className, subtitle, source }: Props) => {
+    const { messages, value, setValue, scrollRef, handleSend } = useAiChat(source);
 
     return (
         <div
             className={cn(
-                'flex h-[420px] min-h-0 w-full min-w-0 max-w-full flex-col overflow-hidden rounded-2xl border border-secondary bg-card sm:h-[480px] md:h-full md:max-w-[420px]',
+                'flex h-[420px] min-h-0 w-full min-w-0 max-w-full flex-col overflow-hidden rounded-2xl border border-secondary bg-card sm:h-[480px] md:h-full ',
                 className,
             )}
         >
@@ -42,6 +42,7 @@ export const PracticeInterviewAiChat = ({ className, subtitle, style }: Props) =
 interface AiChatHeaderProps {
     subtitle: string;
 }
+
 const AiChatHeader = ({ subtitle }: AiChatHeaderProps) => (
     <div className="bg-secondary flex shrink-0 items-center gap-3 border-b px-4 py-4 sm:px-5">
         <div className="bg-primary text-primary-foreground flex h-9 w-9 shrink-0 items-center justify-center rounded-md">
@@ -60,6 +61,7 @@ interface AiChatMainProps {
     messages: ChatMessage[];
     scrollRef: ScrollRef;
 }
+
 const AiChatMain = ({ messages, scrollRef }: AiChatMainProps) => (
     <div
         ref={scrollRef}
@@ -85,6 +87,7 @@ interface AiChatFooterProps {
     setValue: (value: string) => void;
     handleSend: () => void;
 }
+
 const AiChatFooter = ({ value, setValue, handleSend }: AiChatFooterProps) => (
     <div className="flex shrink-0 items-center gap-2 border-t px-3 py-3 sm:px-4">
         <Input

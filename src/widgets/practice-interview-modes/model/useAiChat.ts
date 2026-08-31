@@ -1,15 +1,14 @@
-// Model/useAiChat.ts
 import { useEffect, useRef, useState } from 'react';
 
 import {
     type ChatMessage,
-    type InterviewStyle,
-    getFakeAiReply,
-    mockMessages,
+    type FakeReplySource,
+    getFakeReply,
+    getInitialMessages,
 } from '../lib/practice-message';
 
-export function useAiChat(style: InterviewStyle = 'friendly') {
-    const [messages, setMessages] = useState<ChatMessage[]>(mockMessages);
+export function useAiChat(source: FakeReplySource) {
+    const [messages, setMessages] = useState<ChatMessage[]>(() => getInitialMessages(source));
     const [value, setValue] = useState('');
     const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +31,7 @@ export function useAiChat(style: InterviewStyle = 'friendly') {
         setTimeout(() => {
             setMessages((prev) => [
                 ...prev,
-                { id: crypto.randomUUID(), role: 'ai', text: getFakeAiReply(style) },
+                { id: crypto.randomUUID(), role: 'ai', text: getFakeReply(source) },
             ]);
         }, 700);
     };
