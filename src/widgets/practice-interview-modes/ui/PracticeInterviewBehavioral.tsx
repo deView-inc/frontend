@@ -2,8 +2,7 @@
 
 import { PracticeInterviewHeader } from '~&/widgets/practice-interview-modes';
 
-import type { InterviewCompetency } from '../lib';
-import { behavioralRoomTabs } from '../lib';
+import { type InterviewCompetency, behavioralRoomTabs } from '../lib';
 import { usePracticeInterviewTab } from '../model/usePracticeInterviewSelection';
 import { PracticeInterviewAiChat } from './parts/PracticeInterviewAiChat';
 import { PracticeInterviewCompetencyRadar } from './parts/PracticeInterviewCompetencyRadar';
@@ -48,14 +47,14 @@ export const PracticeInterviewBehavioral = ({ className }: Props) => {
 
                 <div className="flex flex-col gap-5 md:min-w-0">
                     <PracticeInterviewStarBreakdown
-                        statuses={{ A: 'done', R: 'active', S: 'done', T: 'done' }}
+                        statuses={{ S: 'done', T: 'done', A: 'done', R: 'active' }}
                         note="Result пока без цифр — AI попросит уточнить измеримый результат."
                     />
                     <PracticeInterviewCompetencyRadar
                         className="flex-1"
                         scores={{
                             communication: 60,
-                            conflictResolution: 50,
+                            conflictResolution: 40,
                             leadership: 90,
                             ownership: 75,
                             reflection: 70,
