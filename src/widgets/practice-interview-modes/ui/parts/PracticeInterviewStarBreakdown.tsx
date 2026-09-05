@@ -6,10 +6,10 @@ type StarStage = 'S' | 'T' | 'A' | 'R';
 type StarStageStatus = 'done' | 'active' | 'pending';
 
 const STAR_LABELS: Record<StarStage, string> = {
-    A: 'Action',
-    R: 'Result',
     S: 'Situation',
     T: 'Task',
+    A: 'Action',
+    R: 'Result',
 };
 
 interface Props {
@@ -51,14 +51,7 @@ const StarBadge = ({ stage, status }: StarBadgeProps) => (
                 'border-secondary bg-transparent opacity-60 text-muted-foreground',
         )}
     >
-        <span
-            className={cn(
-                'text-[15px] font-semibold',
-                // Status === 'active' ? 'text-destructive' : 'text-primary',
-            )}
-        >
-            {stage}
-        </span>
+        <span className={cn('text-[15px] font-semibold')}>{stage}</span>
         <span className="text-muted-foreground text-[11px] leading-tight">
             {STAR_LABELS[stage]}
         </span>

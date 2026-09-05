@@ -14,6 +14,7 @@ export default defineConfig({
     },
 
     rules: {
+        'sort-keys': 'off',
         'no-ternary': 'off',
         'no-magic-numbers': 'off',
         'one-var': 'off',
