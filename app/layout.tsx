@@ -9,7 +9,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 const inter = Inter({
     adjustFontFallback: true,
     display: 'swap',
-    subsets: ['latin'],
+    subsets: ['cyrillic', 'latin'],
     variable: '--font-inter',
 });
 
@@ -78,9 +78,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         <html
             lang="en"
             className={cn(
-                'h-full',
-                'antialiased',
-                'font-mono',
+                'dark h-full antialiased font-mono',
                 jetbrainsMono.variable,
                 inter.variable,
             )}
