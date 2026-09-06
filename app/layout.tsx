@@ -78,9 +78,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         <html
             lang="en"
             className={cn(
-                'h-full',
-                'antialiased',
-                'font-mono',
+                'dark h-full antialiased font-mono',
                 jetbrainsMono.variable,
                 inter.variable,
             )}
