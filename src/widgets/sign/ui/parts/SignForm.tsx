@@ -6,10 +6,8 @@ import Link from 'next/link';
 import { cn } from '~&/shared/lib/utils';
 import { Button, Checkbox, Field, FieldLabel, Input } from '~&/shared/ui';
 
-import { SIGN_COPY, type SignMode } from '../../lib';
+import { AUTH_BUTTON_CLASS, SIGN_COPY, type SignMode } from '../../lib';
 import { useSignForm } from '../../model/useSignForm';
-
-const AUTH_BUTTON_CLASS = 'h-[46px] w-full gap-2';
 
 interface Props {
     mode: SignMode;

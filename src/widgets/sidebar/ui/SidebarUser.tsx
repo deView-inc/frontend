@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { useIsMobile } from '~&/shared/lib/hooks';
+import { type UserSession, getUserInitials, getUserSession } from '~&/shared/lib/session';
 import {
     Avatar,
     AvatarFallback,
@@ -18,15 +20,24 @@ import {
 } from '~&/shared/ui';
 
 export function SidebarUser() {
+    const [user, setUser] = useState<UserSession | null>(null);
+
+    useEffect(() => {
+        setUser(getUserSession());
+    }, []);
+
+    const name = user?.name ?? 'Алекс Ким';
+    const subtitle = user?.level ?? 'Middle · #5';
+
     return (
         <>
             <Avatar>
-                <AvatarFallback>АЛ</AvatarFallback>
+                <AvatarFallback>{getUserInitials(name)}</AvatarFallback>
                 <AvatarImage />
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate text-sm font-semibold">Алекс Ким</span>
-                <span className="text-muted-foreground truncate text-xs">Middle · #5</span>
+                <span className="truncate text-sm font-semibold">{name}</span>
+                <span className="text-muted-foreground truncate text-xs">{subtitle}</span>
             </div>
             <Icon
                 name="DotsThreeVerticalIcon"

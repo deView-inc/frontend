@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { ProfileOverview } from './ProfileOverview';
+
 export const metadata: Metadata = {
     description:
         'Личная информация, стек технологий, статистика собеседований и достижения. Управляйте своим профилем и настройками.',
@@ -33,5 +35,5 @@ export const metadata: Metadata = {
 };
 
 export function ProfilePage() {
-    return <div>ProfilePage</div>;
+    return <ProfileOverview />;
 }
