@@ -35,5 +35,12 @@ export const metadataSystemDesign: Metadata = {
 };
 
 export function PracticeDesignPage() {
-    return <SystemDesignScaleTabs />;
+    return (
+        <div
+            className="-mx-7 -my-7 min-h-[calc(100vh-64px)] bg-[#090A0C] px-6 py-8"
+            style={{ backgroundColor: '#090A0C' }}
+        >
+            <SystemDesignScaleTabs />
+        </div>
+    );
 }
