@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { SystemDesignScaleTabs } from './SystemDesignScaleTabs';
+
 export const metadataSystemDesign: Metadata = {
     description:
         'Архитектурное собеседование с интерактивной доской. Разбор trade-offов, оценка ёмкости и проектирование систем в реальном времени.',
@@ -33,5 +35,5 @@ export const metadataSystemDesign: Metadata = {
 };
 
 export function PracticeDesignPage() {
-    return <div>PracticeDesignPage</div>;
+    return <SystemDesignScaleTabs />;
 }
