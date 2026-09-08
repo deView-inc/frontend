@@ -1,6 +1,7 @@
 import '~&/shared/styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { ThemeProvider, ThemeScript } from '~&/shared/lib/theme';
 import { cn } from '~&/shared/lib/utils';
 import { Background } from '~&/shared/ui/background';
 
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
     return (
         <html
             lang="en"
+            suppressHydrationWarning
             className={cn(
                 'h-full',
                 'antialiased',
@@ -85,9 +87,14 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
                 inter.variable,
             )}
         >
+            <head>
+                <ThemeScript />
+            </head>
             <body className="background-grid flex min-h-full flex-col">
-                <Background />
-                {children}
+                <ThemeProvider>
+                    <Background />
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

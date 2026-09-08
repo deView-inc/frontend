@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~&/shared/ui';
+
+import { ThemeSwitch } from './ThemeSwitch';
 
 export const metadataProfileSettings: Metadata = {
     description:
@@ -34,5 +37,15 @@ export const metadataProfileSettings: Metadata = {
 };
 
 export function ProfileSettingsPage() {
-    return <div>ProfileSettingsPage</div>;
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Оформление</CardTitle>
+                <CardDescription>Выберите тему интерфейса приложения.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <ThemeSwitch />
+            </CardContent>
+        </Card>
+    );
 }
