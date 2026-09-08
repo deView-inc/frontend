@@ -20,6 +20,7 @@ export * from './kbd';
 export * from './separator';
 export * from './sheet';
 export * from './sidebar';
+export * from './segmented';
 export * from './logo';
 export * from './skeleton';
 export * from './spinner';
