@@ -1,3 +1,5 @@
+'use client';
+
 import { SparkleIcon } from '@phosphor-icons/react';
 import { cn } from '~&/shared/lib/utils';
 import {
