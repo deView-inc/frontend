@@ -35,7 +35,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
     // Public callbacks retain their context when passed to React or browser events.
     getSnapshot = (): SyncState => this.state;
 
-    subscribe = (listener: () => void): (() => void) => {
+    subscribe = (listener: () => void) => {
         if (this.destroyed) {
             return () => {};
         }
@@ -45,7 +45,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         };
     };
 
-    retry = (): void => {
+    retry = () => {
         const { provider } = this;
         if (this.destroyed || !provider) {
             return;
@@ -56,7 +56,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         provider.connect();
     };
 
-    destroy = (): void => {
+    destroy = () => {
         if (this.destroyed) {
             return;
         }
@@ -68,7 +68,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
     };
 
     // Connection setup and matching subscriptions.
-    private initialize(config: EditorSession): void {
+    private initialize(config: EditorSession) {
         this.validateConfig(config);
         this.awareness.setLocalStateField('user', config.user);
         const provider = new WebsocketProvider(
@@ -88,7 +88,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         provider.connect();
     }
 
-    private validateConfig(config: EditorSession): void {
+    private validateConfig(config: EditorSession) {
         const url = new URL(config.wsUrl);
         if (
             !['ws:', 'wss:'].includes(url.protocol) ||
@@ -100,7 +100,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         }
     }
 
-    private attachListeners(provider: WebsocketProvider): void {
+    private attachListeners(provider: WebsocketProvider) {
         provider.on('status', this.handleStatus);
         provider.on('sync', this.handleSync);
         provider.on('connection-error', this.handleError);
@@ -122,21 +122,21 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         provider.off('closed', this.handleClosed);
     }
 
-    private disposeConnection(): void {
+    private disposeConnection() {
         this.awareness.setLocalState(null);
         const { provider } = this;
         this.provider = undefined;
         provider?.destroy();
     }
 
-    private disposeResources(): void {
+    private disposeResources() {
         this.disposeConnection();
         this.awareness.destroy();
         this.doc.destroy();
     }
 
     // State notifications and synchronization timeout.
-    private publish(next: SyncState): void {
+    private publish(next: SyncState) {
         if (this.destroyed) {
             return;
         }
@@ -144,19 +144,19 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         this.listeners.forEach((listener) => listener());
     }
 
-    private publishConnecting(): void {
+    private publishConnecting() {
         this.publish({
             status: this.connectedBefore ? 'reconnecting' : 'connecting',
             retryable: this.connectedBefore,
         });
     }
 
-    private clearTimer(): void {
+    private clearTimer() {
         clearTimeout(this.timer);
         this.timer = undefined;
     }
 
-    private startTimer(): void {
+    private startTimer() {
         this.clearTimer();
         this.timer = setTimeout(() => {
             this.timer = undefined;
@@ -169,7 +169,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         }, 15_000);
     }
 
-    private clearPeers(): void {
+    private clearPeers() {
         removeAwarenessStates(
             this.awareness,
             [...this.awareness.getStates().keys()].filter((id) => id !== this.doc.clientID),
@@ -178,7 +178,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
     }
 
     // Provider and browser event handlers.
-    private handleSync = (synced: boolean): void => {
+    private handleSync = (synced: boolean) => {
         const { provider } = this;
         if (this.destroyed || !provider) {
             return;
@@ -199,7 +199,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         status,
     }: {
         status: 'connected' | 'connecting' | 'disconnected';
-    }): void => {
+    }) => {
         if (this.destroyed) {
             return;
         }
@@ -212,7 +212,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         }
     };
 
-    private handleError = (): void => {
+    private handleError = () => {
         this.publish({
             status: 'reconnecting',
             errorMessage: 'Связь потеряна. Ввод будет доступен после синхронизации.',
@@ -220,7 +220,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         });
     };
 
-    private handleClosed = (): void => {
+    private handleClosed = () => {
         this.clearTimer();
         this.publish({
             status: 'error',
@@ -229,7 +229,7 @@ export class WebsocketCollaborationSession implements CollaborationSession {
         });
     };
 
-    private handleOffline = (): void => {
+    private handleOffline = () => {
         const { provider } = this;
         if (this.destroyed || !provider) {
             return;
