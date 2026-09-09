@@ -1,6 +1,8 @@
 import type { Awareness } from 'y-protocols/awareness';
 import type { Doc } from 'yjs';
 
+import type { CodeEditorProps } from '~&/shared/ui/code-editor';
+
 interface EditorUser {
     id: string;
     name: string;
@@ -33,3 +35,10 @@ export interface CollaborationSession {
 }
 
 export type SessionFactory = (config: EditorSession) => CollaborationSession;
+
+export interface EditorBindingOptions {
+    session: CollaborationSession;
+    editor: Parameters<CodeEditorProps['onReady']>[0];
+    monaco: Parameters<CodeEditorProps['onReady']>[1];
+    onParticipantsChange: (count: number) => void;
+}
