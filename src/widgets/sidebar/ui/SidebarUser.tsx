@@ -1,9 +1,11 @@
 'use client';
 
+import type { Route } from 'next';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useSession } from '~&/features/auth';
+import { ROUTES } from '~&/shared/config';
 import { useIsMobile } from '~&/shared/lib/hooks';
-import { type UserSession, getUserInitials, getUserSession } from '~&/shared/lib/session';
+import { getUserInitials } from '~&/shared/lib/session';
 import {
     Avatar,
     AvatarFallback,
@@ -20,14 +22,9 @@ import {
 } from '~&/shared/ui';
 
 export function SidebarUser() {
-    const [user, setUser] = useState<UserSession | null>(null);
-
-    useEffect(() => {
-        setUser(getUserSession());
-    }, []);
-
-    const name = user?.name ?? 'Алекс Ким';
-    const subtitle = user?.level ?? 'Middle · #5';
+    const { user } = useSession();
+    const name = user?.firstName || user?.email || 'Пользователь';
+    const subtitle = user?.grade || user?.email || '';
 
     return (
         <>
@@ -49,6 +46,7 @@ export function SidebarUser() {
 
 export function DropdownUser() {
     const isMobile = useIsMobile();
+    const { signOut } = useSession();
 
     return (
         <DropdownMenu>
@@ -65,14 +63,22 @@ export function DropdownUser() {
             <DropdownMenuContent side={isMobile ? 'bottom' : 'right'}>
                 <DropdownMenuGroup>
                     <DropdownMenuLabel>Аккаунт</DropdownMenuLabel>
-                    <DropdownMenuItem>
-                        <Icon name="UserIcon" />
-                        Профиль
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <Icon name="GearIcon" />
-                        Настройки
-                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                        render={
+                            <Link href={ROUTES.PROFILE.ROOT as Route}>
+                                <Icon name="UserIcon" />
+                                Профиль
+                            </Link>
+                        }
+                    />
+                    <DropdownMenuItem
+                        render={
+                            <Link href={ROUTES.PROFILE.SETTINGS as Route}>
+                                <Icon name="GearIcon" />
+                                Настройки
+                            </Link>
+                        }
+                    />
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
@@ -81,14 +87,17 @@ export function DropdownUser() {
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         render={
-                            <Link href="/faq">
+                            <Link href={ROUTES.HELP.FAQ as Route}>
                                 <Icon name="InfoIcon" /> FAQ
                             </Link>
                         }
                     />
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
+                <DropdownMenuItem
+                    onClick={() => void signOut()}
+                    variant="destructive"
+                >
                     <Icon name="SignOutIcon" /> Выйти
                 </DropdownMenuItem>
             </DropdownMenuContent>

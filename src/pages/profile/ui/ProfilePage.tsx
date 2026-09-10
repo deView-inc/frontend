@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import { Spinner } from '~&/shared/ui/spinner';
 
 import { ProfileOverview } from './ProfileOverview';
 
@@ -35,5 +37,16 @@ export const metadata: Metadata = {
 };
 
 export function ProfilePage() {
-    return <ProfileOverview />;
+    return (
+        <Suspense
+            fallback={
+                <div className="text-muted-foreground flex items-center gap-2">
+                    <Spinner />
+                    Загрузка профиля
+                </div>
+            }
+        >
+            <ProfileOverview />
+        </Suspense>
+    );
 }

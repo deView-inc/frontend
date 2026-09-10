@@ -25,8 +25,8 @@ export function SignUpScreen() {
             </div>
             <div className="border-border bg-card mt-7 w-full rounded-2xl border p-8">
                 {flow.step === 1 && <SignUpEmailStep {...flow} />}
-                {flow.step === 2 && <SignUpCodeStep {...flow} />}
-                {flow.step === 3 && <SignUpProfileStep {...flow} />}
+                {flow.step === 2 && <SignUpProfileStep {...flow} />}
+                {flow.step === 3 && <SignUpCodeStep {...flow} />}
             </div>
         </div>
     );

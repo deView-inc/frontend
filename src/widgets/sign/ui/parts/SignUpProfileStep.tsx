@@ -1,5 +1,5 @@
 import { cn } from '~&/shared/lib/utils';
-import { Button, Field, FieldLabel, Input } from '~&/shared/ui';
+import { Button, Field, FieldError, FieldLabel, Input, Spinner } from '~&/shared/ui';
 
 import {
     AUTH_BUTTON_CLASS,
@@ -11,20 +11,22 @@ import type { SignUpFlowModel } from '../../model/useSignUpFlow';
 import { SignUpOptionChip } from './SignUpOptionChip';
 
 export function SignUpProfileStep({
+    formError,
     handleLanguageToggle,
     handleLevelChange,
     handleNameChange,
     handleProfileSubmit,
+    isSubmitting,
     languages,
     level,
     name,
 }: SignUpFlowModel) {
-    const canSubmit = Boolean(name.trim() && level && languages.length > 0);
+    const canSubmit = Boolean(name.trim() && level);
 
     return (
         <form
             className="flex flex-col"
-            onSubmit={handleProfileSubmit}
+            onSubmit={(event) => void handleProfileSubmit(event)}
         >
             <h2 className="text-foreground font-[family-name:var(--font-inter)] text-[28px] leading-tight font-extrabold">
                 Расскажите о себе
@@ -64,7 +66,7 @@ export function SignUpProfileStep({
             </Field>
 
             <Field className="mt-5">
-                <FieldLabel>Языки программирования (до {SIGN_UP_MAX_LANGUAGES})</FieldLabel>
+                <FieldLabel>Стек (до {SIGN_UP_MAX_LANGUAGES}, необязательно)</FieldLabel>
                 <div className="flex flex-wrap gap-2">
                     {SIGN_UP_LANGUAGES.map((item) => {
                         const selected = languages.includes(item.id);
@@ -84,12 +86,14 @@ export function SignUpProfileStep({
                 </div>
             </Field>
 
+            {formError && <FieldError className="mt-4">{formError}</FieldError>}
+
             <Button
                 className={cn(AUTH_BUTTON_CLASS, 'mt-6')}
-                disabled={!canSubmit}
+                disabled={!canSubmit || isSubmitting}
                 type="submit"
             >
-                Завершить регистрацию
+                {isSubmitting ? <Spinner /> : 'Отправить код'}
             </Button>
         </form>
     );

@@ -1,34 +1,38 @@
 export const AUTH_COOKIE_NAME = '0auth';
-export const USER_SESSION_KEY = 'deview-user';
 
-export interface UserSession {
-    email: string;
-    languages: string[];
-    level: string;
-    name: string;
+let accessToken: string | null = null;
+
+type AccessTokenListener = (token: string | null) => void;
+
+const listeners = new Set<AccessTokenListener>();
+
+export function getAccessToken() {
+    return accessToken;
 }
 
-export function getUserSession(): UserSession | null {
-    if (typeof window === 'undefined') {
-        return null;
+export function setAccessToken(token: string | null) {
+    if (accessToken === token) {
+        return;
     }
 
-    const raw = localStorage.getItem(USER_SESSION_KEY);
-
-    if (!raw) {
-        return null;
-    }
-
-    try {
-        return JSON.parse(raw) as UserSession;
-    } catch {
-        return null;
-    }
+    accessToken = token;
+    listeners.forEach((listener) => listener(token));
 }
 
-export function saveUserSession(user: UserSession) {
-    localStorage.setItem(USER_SESSION_KEY, JSON.stringify(user));
+export function subscribeAccessToken(listener: AccessTokenListener) {
+    listeners.add(listener);
+
+    return () => {
+        listeners.delete(listener);
+    };
+}
+
+export function setAuthCookie() {
     document.cookie = `${AUTH_COOKIE_NAME}=true; path=/; SameSite=Lax`;
+}
+
+export function clearAuthCookie() {
+    document.cookie = `${AUTH_COOKIE_NAME}=; path=/; max-age=0; SameSite=Lax`;
 }
 
 export function getUserInitials(name: string) {

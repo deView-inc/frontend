@@ -1,22 +1,58 @@
 'use client';
 
-import { GithubLogoIcon, GoogleLogoIcon } from '@phosphor-icons/react';
 import type { Route } from 'next';
 import Link from 'next/link';
+import { OAuthButtons } from '~&/features/auth';
 import { cn } from '~&/shared/lib/utils';
-import { Button, Checkbox, Field, FieldLabel, Input } from '~&/shared/ui';
+import { Button, Checkbox, Field, FieldError, FieldLabel, Input, Spinner } from '~&/shared/ui';
 
 import { AUTH_BUTTON_CLASS, SIGN_COPY, type SignMode } from '../../lib';
 import { useSignForm } from '../../model/useSignForm';
+import { AuthCodeStep } from './AuthCodeStep';
 
 interface Props {
     mode: SignMode;
 }
 
 export function SignForm({ mode }: Props) {
-    const { email, handleEmailChange, handleRememberChange, handleSubmit, rememberDevice } =
-        useSignForm();
+    const {
+        code,
+        codeError,
+        email,
+        formError,
+        handleBackToEmail,
+        handleCodeChange,
+        handleCodeSubmit,
+        handleEmailChange,
+        handleRememberChange,
+        handleResendCode,
+        handleSubmit,
+        isSubmitting,
+        rememberDevice,
+        resendBlocked,
+        resendIn,
+        step,
+    } = useSignForm();
     const copy = SIGN_COPY[mode];
+
+    if (step === 'code') {
+        return (
+            <div className="border-border bg-card w-full max-w-[420px] rounded-2xl border p-8">
+                <AuthCodeStep
+                    code={code}
+                    codeError={codeError}
+                    email={email}
+                    isSubmitting={isSubmitting}
+                    onBack={handleBackToEmail}
+                    onCodeChange={handleCodeChange}
+                    onResend={() => void handleResendCode()}
+                    onSubmit={(event) => void handleCodeSubmit(event)}
+                    resendBlocked={resendBlocked}
+                    resendIn={resendIn}
+                />
+            </div>
+        );
+    }
 
     return (
         <div className="border-border bg-card w-full max-w-[420px] rounded-2xl border p-8">
@@ -25,24 +61,10 @@ export function SignForm({ mode }: Props) {
             </h2>
             <p className="mt-1.5 text-sm text-[#9A9A9A]">{copy.subtitle}</p>
 
-            <div className="mt-1.5 flex flex-col gap-1.5">
-                <Button
-                    className={AUTH_BUTTON_CLASS}
-                    type="button"
-                    variant="secondary"
-                >
-                    <GithubLogoIcon size={18} />
-                    Войти через GitHub
-                </Button>
-                <Button
-                    className={AUTH_BUTTON_CLASS}
-                    type="button"
-                    variant="secondary"
-                >
-                    <GoogleLogoIcon size={18} />
-                    Войти через Google
-                </Button>
-            </div>
+            <OAuthButtons
+                action="sign-in"
+                className="mt-1.5"
+            />
 
             <div className="mt-1.5 flex items-center gap-1">
                 <span className="bg-border h-px flex-1" />
@@ -52,7 +74,7 @@ export function SignForm({ mode }: Props) {
 
             <form
                 className="mt-1.5 flex flex-col"
-                onSubmit={handleSubmit}
+                onSubmit={(event) => void handleSubmit(event)}
             >
                 <Field>
                     <FieldLabel htmlFor="sign-email">Email</FieldLabel>
@@ -86,11 +108,14 @@ export function SignForm({ mode }: Props) {
                     </FieldLabel>
                 </Field>
 
+                {formError && <FieldError className="mt-1.5">{formError}</FieldError>}
+
                 <Button
                     className={cn(AUTH_BUTTON_CLASS, 'mt-1.5')}
+                    disabled={isSubmitting}
                     type="submit"
                 >
-                    Получить код
+                    {isSubmitting ? <Spinner /> : 'Получить код'}
                 </Button>
             </form>
 

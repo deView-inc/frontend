@@ -12,6 +12,7 @@ interface RouteRecord {
 
 export const ROUTES = {
     AUTH: {
+        OAUTH: '/oauth',
         SIGN_IN: '/sign-in',
         SIGN_UP: '/sign-up',
     },

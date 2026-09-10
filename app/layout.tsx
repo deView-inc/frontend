@@ -1,6 +1,7 @@
 import '~&/shared/styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { SessionProvider } from '~&/features/auth';
 import { cn } from '~&/shared/lib/utils';
 import { Background } from '~&/shared/ui/background';
 
@@ -85,7 +86,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         >
             <body className="background-grid flex min-h-full flex-col">
                 <Background />
-                {children}
+                <SessionProvider>{children}</SessionProvider>
             </body>
         </html>
     );

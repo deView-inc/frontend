@@ -1,29 +1,32 @@
+import type { UserGrade } from '~&/features/auth';
 import { ROUTES } from '~&/shared/config';
 
 export type SignMode = 'sign-in' | 'sign-up';
 
 export const AUTH_BUTTON_CLASS = 'h-[46px] w-full gap-2';
+export const AUTH_OTP_LENGTH = 6;
 
 export const SIGN_STATS = [
     { label: 'интервью проведено', value: '12К+' },
     { label: 'средняя оценка', value: '4.9/5' },
 ] as const;
 
-export const SIGN_UP_DEMO_CODE = '123456';
-
 export const SIGN_UP_STEPS = [
     { id: 1, label: 'email' },
-    { id: 2, label: 'код' },
-    { id: 3, label: 'профиль' },
+    { id: 2, label: 'профиль' },
+    { id: 3, label: 'код' },
 ] as const;
 
 export type SignUpStep = (typeof SIGN_UP_STEPS)[number]['id'];
 
 export const SIGN_UP_LEVELS = [
+    { experience: 'стажировка', id: 'trainee', title: 'Trainee' },
     { experience: '0–1 год', id: 'junior', title: 'Junior' },
-    { experience: '1–3 года', id: 'middle', title: 'Middle' },
-    { experience: '3+ года', id: 'senior', title: 'Senior' },
-] as const;
+    { experience: '1–2 года', id: 'junior+', title: 'Junior+' },
+    { experience: '2–4 года', id: 'middle', title: 'Middle' },
+    { experience: '4–6 лет', id: 'middle+', title: 'Middle+' },
+    { experience: '6+ лет', id: 'senior', title: 'Senior' },
+] as const satisfies readonly { experience: string; id: UserGrade; title: string }[];
 
 export type SignUpLevelId = (typeof SIGN_UP_LEVELS)[number]['id'];
 
