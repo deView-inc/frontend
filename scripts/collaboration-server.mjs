@@ -1,6 +1,5 @@
 import { createServer } from 'node:http';
 
-// oxlint-disable-next-line sort-imports
 import { getYDoc, setPersistence, setupWSConnection } from '@y/websocket-server/utils';
 import { WebSocketServer } from 'ws';
 
