@@ -6,7 +6,7 @@ export function EditorHeader({
     participants: number;
 }) {
     return (
-        <div className="border-border flex flex-wrap items-center justify-between gap-2 border-b px-3.5 py-3 text-xs">
+        <div className="border-border flex shrink-0 flex-wrap items-center justify-between gap-2 border-b px-3.5 py-3 text-xs">
             <span>{fileName}</span>
             <span className="text-muted-foreground">
                 Совместное редактирование ·{' '}

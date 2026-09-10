@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-
 import { cn } from '~&/shared/lib/utils';
 
 import type { EditorSessionSource } from '../model/types';
@@ -20,7 +19,7 @@ export function CollaborativeCodeEditor({ className, ...props }: Props) {
         <section
             aria-label="Совместный редактор"
             className={cn(
-                'bg-card border-border flex min-h-[380px] min-w-0 flex-col overflow-hidden rounded-md border',
+                'bg-card border-border flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-md border',
                 className,
             )}
         >

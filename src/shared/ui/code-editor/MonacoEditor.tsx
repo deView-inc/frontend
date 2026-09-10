@@ -8,7 +8,7 @@ export default function MonacoEditor(props: CodeEditorProps) {
     const [attempt, setAttempt] = useState(0);
     const handleRetry = useCallback(() => setAttempt((value) => value + 1), []);
     return (
-        <div className="relative h-full min-h-[280px] min-w-0 flex-1">
+        <div className="relative h-full min-h-0 min-w-0 flex-1 overflow-hidden">
             <EditorAttempt
                 key={attempt}
                 {...props}

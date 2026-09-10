@@ -48,7 +48,7 @@ export async function RoomSessionPage({ params }: RoomSessionPageProps) {
             <CollaborativeCodeEditor
                 kind="room"
                 roomId={roomId}
-                className="h-[calc(100dvh-180px)]"
+                className="h-[calc(100dvh-180px)] min-h-[380px]"
             />
         </div>
     );

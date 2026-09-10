@@ -16,7 +16,7 @@ interface Props {
 
 export function EditorStatusBar({ state, editorFailed, onRetry }: Props) {
     return (
-        <div className="border-border flex flex-wrap items-center justify-between gap-2 border-t px-3.5 py-2 font-mono text-xs">
+        <div className="border-border flex shrink-0 flex-wrap items-center justify-between gap-2 border-t px-3.5 py-2 font-mono text-xs">
             <span
                 role="status"
                 data-testid="sync-status"
