@@ -1,5 +1,6 @@
+import type { MonacoBinding } from 'y-monaco';
 import type { Awareness } from 'y-protocols/awareness';
-import type { Doc } from 'yjs';
+import type { Doc, Text } from 'yjs';
 
 import type { CodeEditorProps } from '~&/shared/ui/code-editor';
 
@@ -16,6 +17,10 @@ export interface EditorSession {
     wsUrl: string;
     user: EditorUser;
 }
+
+export type EditorSessionSource =
+    | { kind: 'room'; roomId: string }
+    | { kind: 'practice'; roomId?: never };
 
 export type SyncStatus = 'connecting' | 'syncing' | 'connected' | 'reconnecting' | 'error';
 
@@ -41,4 +46,12 @@ export interface EditorBindingOptions {
     editor: Parameters<CodeEditorProps['onReady']>[0];
     monaco: Parameters<CodeEditorProps['onReady']>[1];
     onParticipantsChange: (count: number) => void;
+}
+
+export interface HistoryOptions extends Pick<
+    EditorBindingOptions,
+    'session' | 'editor' | 'monaco'
+> {
+    text: Text;
+    binding: MonacoBinding;
 }
