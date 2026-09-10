@@ -90,6 +90,7 @@ export default defineConfig({
     },
 
     ignorePatterns: [
+        'public/monaco/**',
         '**/node_modules/**',
         '**/.pnpm-store/**',
 
