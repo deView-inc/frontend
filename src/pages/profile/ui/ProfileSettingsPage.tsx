@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import { ConnectedAccounts } from '~&/features/auth';
+import { Description } from '~&/shared/ui/description';
+import { Title } from '~&/shared/ui/title';
 
 export const metadataProfileSettings: Metadata = {
     description:
@@ -34,5 +37,15 @@ export const metadataProfileSettings: Metadata = {
 };
 
 export function ProfileSettingsPage() {
-    return <div>ProfileSettingsPage</div>;
+    return (
+        <div className="flex min-h-0 flex-1 flex-col gap-6">
+            <header className="flex flex-col gap-1.5">
+                <Title className="font-[family-name:var(--font-inter)] text-[22px] font-extrabold md:text-[26px]">
+                    Настройки
+                </Title>
+                <Description>Управление аккаунтом и подключёнными сервисами</Description>
+            </header>
+            <ConnectedAccounts />
+        </div>
+    );
 }
