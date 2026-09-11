@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
     reactCompiler: true,
     output: 'standalone',
     typedRoutes: true,
+    allowedDevOrigins: ['127.0.0.1'],
     turbopack: {
         root: __dirname,
     },

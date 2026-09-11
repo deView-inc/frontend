@@ -19,6 +19,7 @@ export default defineConfig({
     sortImports: true,
 
     ignore: [
+        'public/monaco/**',
         '**/node_modules/**',
         '**/.pnpm-store/**',
 
