@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SignScreen } from '~&/widgets/sign';
 
 export const metadataSignIn: Metadata = {
     description:
@@ -31,5 +32,5 @@ export const metadataSignIn: Metadata = {
 };
 
 export function SignInPage() {
-    return <div>SignInPage</div>;
+    return <SignScreen mode="sign-in" />;
 }

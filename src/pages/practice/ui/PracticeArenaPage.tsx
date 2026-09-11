@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { PracticeArena } from '~&/widgets/practice-arena';
 
 export const metadataArena: Metadata = {
     description:
@@ -22,7 +23,7 @@ export const metadataArena: Metadata = {
             },
         ],
         title: 'Coding Arena - Соревновательная дуэль 1x1',
-        url: 'https://app.deview.ru/practice/arena',
+        url: 'https://app.deview.ru/practice/coding',
     },
     title: 'Coding Arena - Соревновательная дуэль 1x1',
     twitter: {
@@ -34,5 +35,5 @@ export const metadataArena: Metadata = {
 };
 
 export function PracticeArenaPage() {
-    return <div>PracticeArenaPage</div>;
+    return <PracticeArena />;
 }

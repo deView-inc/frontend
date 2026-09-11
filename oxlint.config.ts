@@ -14,6 +14,8 @@ export default defineConfig({
     },
 
     rules: {
+        // Import ordering is handled by Oxfmt.
+        'sort-imports': 'off',
         'sort-keys': 'off',
         'no-ternary': 'off',
         'no-magic-numbers': 'off',
@@ -90,6 +92,7 @@ export default defineConfig({
     },
 
     ignorePatterns: [
+        'public/monaco/**',
         '**/node_modules/**',
         '**/.pnpm-store/**',
 

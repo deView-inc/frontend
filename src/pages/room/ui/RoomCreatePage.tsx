@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { RoomCreateForm, RoomCreateHeader } from '~&/widgets/room-create';
 
 export const metadataCreate: Metadata = {
     description:
@@ -33,5 +34,10 @@ export const metadataCreate: Metadata = {
 };
 
 export function RoomCreatePage() {
-    return <div>RoomCreatePage</div>;
+    return (
+        <div className="flex min-h-0 flex-1 flex-col gap-4 md:gap-[22px]">
+            <RoomCreateHeader />
+            <RoomCreateForm />
+        </div>
+    );
 }

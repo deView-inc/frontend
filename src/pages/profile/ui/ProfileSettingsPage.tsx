@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
+import { ConnectedAccounts } from '~&/features/auth';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~&/shared/ui';
+import { Description } from '~&/shared/ui/description';
+import { Title } from '~&/shared/ui/title';
 
 import { ThemeSwitch } from './ThemeSwitch';
 
@@ -38,14 +41,23 @@ export const metadataProfileSettings: Metadata = {
 
 export function ProfileSettingsPage() {
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle>Оформление</CardTitle>
-                <CardDescription>Выберите тему интерфейса приложения.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <ThemeSwitch />
-            </CardContent>
-        </Card>
+        <div className="flex min-h-0 flex-1 flex-col gap-6">
+            <header className="flex flex-col gap-1.5">
+                <Title className="font-[family-name:var(--font-inter)] text-[22px] font-extrabold md:text-[26px]">
+                    Настройки
+                </Title>
+                <Description>Управление аккаунтом и подключёнными сервисами</Description>
+            </header>
+            <Card>
+                <CardHeader>
+                    <CardTitle>Оформление</CardTitle>
+                    <CardDescription>Выберите тему интерфейса приложения.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <ThemeSwitch />
+                </CardContent>
+            </Card>
+            <ConnectedAccounts />
+        </div>
     );
 }

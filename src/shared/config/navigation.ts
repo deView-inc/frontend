@@ -12,6 +12,7 @@ interface RouteRecord {
 
 export const ROUTES = {
     AUTH: {
+        OAUTH: '/oauth',
         SIGN_IN: '/sign-in',
         SIGN_UP: '/sign-up',
     },
@@ -26,10 +27,11 @@ export const ROUTES = {
     LEADERS: '/leaders',
     NOTIFICATIONS: '/notifications',
     PRACTICE: {
+        ARENA: '/practice/coding',
         BEHAVIORAL: '/practice/behavioral',
         DESIGN: '/practice/system-design',
         LANGUAGE: '/practice/language',
-        LIVE: '/practice/coding',
+        LIVE: '/practice/one-to-one',
         PANEL: '/practice/panel',
         ROOT: '/practice',
         SOLO: '/practice/solo',
@@ -181,6 +183,11 @@ export const NAV_ITEMS: NavItem[] = [
         icon: 'Crown',
         label: 'Лидеры',
         path: ROUTES.LEADERS,
+    },
+    {
+        description: 'Соревнование 1x1 на скорость и корректность решения',
+        label: 'Coding Arena',
+        path: ROUTES.PRACTICE.ARENA,
     },
 ];
 

@@ -34,3 +34,4 @@ export * from './container';
 export * from './glow';
 export * from './logo';
 export * from './section';
+export * from './title';
