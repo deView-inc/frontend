@@ -10,7 +10,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 const inter = Inter({
     adjustFontFallback: true,
     display: 'swap',
-    subsets: ['latin'],
+    subsets: ['cyrillic', 'latin'],
     variable: '--font-inter',
 });
 
