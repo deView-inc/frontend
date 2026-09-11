@@ -8,13 +8,20 @@ interface Props {
     statusColor?: string;
     live?: boolean;
     className?: string;
+    dotColor?: string;
 }
+
+interface CodeHeaderDotsProps {
+    dotColor?: string;
+}
+
 export const CodeWindowHeader = ({
     fileName,
     statusLabel,
     statusColor = '#FF6A5A',
     live = true,
     className,
+    dotColor,
 }: Props) => (
     <div
         className={cn(
@@ -22,7 +29,7 @@ export const CodeWindowHeader = ({
             className,
         )}
     >
-        <CodeHeaderDots />
+        <CodeHeaderDots dotColor={dotColor} />
         <CodeHeaderFileName fileName={fileName} />
         <CodeHeaderStatus
             statusLabel={statusLabel}
@@ -32,13 +39,13 @@ export const CodeWindowHeader = ({
     </div>
 );
 
-const CodeHeaderDots = () => (
+const CodeHeaderDots = ({ dotColor }: CodeHeaderDotsProps) => (
     <div className="flex items-center gap-1.5">
         {DOT_COLORS.map((color) => (
             <span
                 key={color}
                 className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: dotColor ?? color }}
             />
         ))}
     </div>
