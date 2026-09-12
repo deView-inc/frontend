@@ -1,4 +1,3 @@
-import { cn } from '~&/shared/lib/utils';
 import {
     Button,
     Dialog,
@@ -11,8 +10,6 @@ import {
 
 import { MY_CARD } from '../model/participants';
 import { ParticipantCard } from './ParticipantCard/ParticipantCard';
-
-import styles from '~&/shared/styles/my-card-theme.module.css';
 
 const MY_CARD_TRIGGER = (
     <Button
@@ -32,7 +29,7 @@ export function MyCardDialog() {
                 />
                 Моя карточка
             </DialogTrigger>
-            <DialogContent className={cn(styles.myCard, 'sm:max-w-[440px]')}>
+            <DialogContent className="sm:max-w-[440px]">
                 <DialogTitle>Моя карточка</DialogTitle>
                 <DialogDescription>Предпросмотр карточки участника. Демо-данные.</DialogDescription>
                 <ParticipantCard participant={MY_CARD} />

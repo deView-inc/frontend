@@ -82,7 +82,7 @@ export const NAV_ITEMS: NavItem[] = [
     {
         description: 'Личные данные, настройки и предпочтения',
         icon: 'UserIcon',
-        label: 'Профиль',
+        label: 'Личный кабинет',
         menu: true,
         path: ROUTES.PROFILE.ROOT,
     },
