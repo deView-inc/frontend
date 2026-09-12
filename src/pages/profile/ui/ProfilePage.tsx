@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
+import { ProfileDirectory } from './ProfileDirectory';
+
 export const metadata: Metadata = {
     description:
-        'Личная информация, стек технологий, статистика собеседований и достижения. Управляйте своим профилем и настройками.',
+        'Найдите партнёра для технического интервью по стеку, уровню и роли. Просматривайте карточки участников и свою карточку.',
     keywords: [
         'профиль пользователя',
         'личный кабинет',
@@ -33,5 +35,5 @@ export const metadata: Metadata = {
 };
 
 export function ProfilePage() {
-    return <div>ProfilePage</div>;
+    return <ProfileDirectory />;
 }
