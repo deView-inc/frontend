@@ -61,3 +61,16 @@ export type DifficultyId = (typeof DIFFICULTIES)[number]['id'];
 export function isLanguageId(value: string): value is LanguageId {
     return LANGUAGES.some((item) => item.id === value);
 }
+
+export function createRoomId(name: string) {
+    const slug = name
+        .trim()
+        .toLowerCase()
+        .replaceAll(':', '')
+        .replace(/[^\p{L}\p{N}]+/gu, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 32);
+
+    const suffix = crypto.randomUUID().replaceAll('-', '').slice(0, 6);
+    return slug ? `${slug}-${suffix}` : suffix;
+}
