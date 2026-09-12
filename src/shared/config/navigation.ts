@@ -168,6 +168,12 @@ export const NAV_ITEMS: NavItem[] = [
         path: ROUTES.ROOM.CREATE,
     },
     {
+        description: 'Совместный редактор кода в реальном времени',
+        icon: 'CodeBlock',
+        label: 'Лайвкодинг',
+        path: (id: string) => ROUTES.ROOM.SESSION(id),
+    },
+    {
         description: 'Присоединение к существующей комнате',
         label: (id: string) => `Присоединение к комнате #${id}`,
         path: (id: string) => ROUTES.ROOM.JOIN(id),
@@ -206,15 +212,25 @@ export const BREADCRUMBS: {
     description: string;
 }[] = NAV_ITEMS.map(({ path, label, description }) => ({ description, label, path }));
 
-export const getRouteUrl = (
-    route: Route | ((...args: unknown[]) => Route),
-    ...args: unknown[]
-): Route => {
+export const getRouteUrl = (route: Route | RouteFunction, ...args: unknown[]): Route => {
     if (typeof route === 'function') {
-        return route(...args) as Route;
+        return (route as (...params: unknown[]) => Route)(...args);
     }
     return route;
 };
 
 export const isDynamicRoute = (route: Route | RouteFunction): route is RouteFunction =>
     typeof route === 'function';
+
+export const getBreadcrumb = (pathname: string, param = '') => {
+    const exact = BREADCRUMBS.find((item) => item.path === pathname);
+    if (exact) {
+        return exact;
+    }
+
+    return BREADCRUMBS.filter((item) => isDynamicRoute(item.path))
+        .map((item) => ({ item, url: getRouteUrl(item.path, param) }))
+        .filter(({ url }) => url === pathname)
+        .sort((left, right) => right.url.length - left.url.length)
+        .at(0)?.item;
+};

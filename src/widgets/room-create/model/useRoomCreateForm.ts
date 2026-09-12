@@ -1,4 +1,6 @@
+import { useRouter } from 'next/navigation';
 import { type FormEvent, useState } from 'react';
+import { ROUTES } from '~&/shared/config';
 
 import {
     DEFAULT_ROOM_NAME,
@@ -7,10 +9,15 @@ import {
     LANGUAGES,
     type LanguageId,
     PRIMARY_LANGUAGES,
+    createRoomId,
     isLanguageId,
 } from '../lib';
 
-export function useRoomCreateForm() {
+function openCreatedRoom(router: ReturnType<typeof useRouter>, name: string) {
+    router.push(ROUTES.ROOM.SESSION(createRoomId(name.trim() || DEFAULT_ROOM_NAME)));
+}
+
+function useRoomCreateFields() {
     const [name, setName] = useState('');
     const [language, setLanguage] = useState<LanguageId>('js');
     const [difficulty, setDifficulty] = useState<DifficultyId>('middle');
@@ -19,9 +26,27 @@ export function useRoomCreateForm() {
     const [recording, setRecording] = useState(false);
     const [task, setTask] = useState('');
 
-    const selectedLanguage = LANGUAGES.find((item) => item.id === language);
-    const selectedDifficulty = DIFFICULTIES.find((item) => item.id === difficulty);
-    const isPrimaryLanguage = PRIMARY_LANGUAGES.some((item) => item.id === language);
+    return {
+        aiHints,
+        difficulty,
+        isOpen,
+        language,
+        name,
+        recording,
+        setAiHints,
+        setDifficulty,
+        setIsOpen,
+        setLanguage,
+        setName,
+        setRecording,
+        setTask,
+        task,
+    };
+}
+
+export function useRoomCreateForm() {
+    const router = useRouter();
+    const { language, name, setLanguage, ...fields } = useRoomCreateFields();
 
     const handleLanguageChange = (value: string | null) => {
         if (!value || !isLanguageId(value)) {
@@ -33,28 +58,19 @@ export function useRoomCreateForm() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        openCreatedRoom(router, name);
     };
 
     return {
-        aiHints,
-        difficulty,
+        ...fields,
         handleLanguageChange,
         handleSubmit,
-        isOpen,
-        isPrimaryLanguage,
+        isPrimaryLanguage: PRIMARY_LANGUAGES.some((item) => item.id === language),
         language,
         name,
         previewName: name.trim() || DEFAULT_ROOM_NAME,
-        recording,
-        selectedDifficulty,
-        selectedLanguage,
-        setAiHints,
-        setDifficulty,
-        setIsOpen,
-        setName,
-        setRecording,
-        setTask,
-        task,
+        selectedDifficulty: DIFFICULTIES.find((item) => item.id === fields.difficulty),
+        selectedLanguage: LANGUAGES.find((item) => item.id === language),
     };
 }
 

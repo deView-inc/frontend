@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+import { ROUTES } from '~&/shared/config';
 
 export const metadataOneToOne: Metadata = {
     description:
@@ -32,5 +34,5 @@ export const metadataOneToOne: Metadata = {
 };
 
 export function PracticeOneToOnePage() {
-    return <div>PracticeOneToOnePage</div>;
+    return redirect(ROUTES.ROOM.CREATE);
 }
