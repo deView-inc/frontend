@@ -3,19 +3,20 @@
 import { useParams, usePathname } from 'next/navigation';
 import { GlobalSearch } from '~&/features/global-search';
 import { NotificationBell } from '~&/features/notifications';
-import { BREADCRUMBS } from '~&/shared/config';
+import { getBreadcrumb } from '~&/shared/config';
+
+function readRouteParam(params: ReturnType<typeof useParams>) {
+    const value = params?.roomId ?? params?.id;
+    return typeof value === 'string' ? value : '';
+}
 
 export function Header() {
-    const pathname = usePathname();
-    const params = useParams<{ id: string }>();
+    const pathname = usePathname() ?? '';
+    const param = readRouteParam(useParams());
+    const routeMeta = getBreadcrumb(pathname, param);
 
-    const routeMeta = BREADCRUMBS.find((bread) => bread.path === pathname);
-
-    // TODO: will review at feature, now is temporary
     const label =
-        typeof routeMeta?.label === 'function'
-            ? routeMeta.label(params?.id ?? '')
-            : routeMeta?.label;
+        typeof routeMeta?.label === 'function' ? routeMeta.label(param) : routeMeta?.label;
 
     return (
         <header className="bg-background z-10 flex h-auto shrink-0 flex-wrap items-center justify-between gap-3 border-b px-8 py-3.5 transition-[width,height]">

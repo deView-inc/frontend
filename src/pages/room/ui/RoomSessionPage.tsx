@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
+import { CollaborativeCodeEditor } from '~&/features/collaborative-code-editor';
 
 interface RoomSessionPageProps {
-    params: {
-        id: string;
-    };
+    params: Promise<{ roomId: string }>;
 }
 
 export async function generateMetadata({ params }: RoomSessionPageProps): Promise<Metadata> {
-    const { id } = params;
+    const { roomId: id } = await params;
 
     return {
         description: `Проведение собеседования в комнате ${id}. Видеосвязь, общий редактор кода и взаимный фидбэк в реальном времени.`,
@@ -41,6 +40,16 @@ export async function generateMetadata({ params }: RoomSessionPageProps): Promis
     };
 }
 
-export function RoomSessionPage({ params }: RoomSessionPageProps) {
-    return <div>RoomSessionPage: {params.id}</div>;
+export async function RoomSessionPage({ params }: RoomSessionPageProps) {
+    const { roomId } = await params;
+    return (
+        <div className="flex min-w-0 flex-1 flex-col gap-4 p-4 md:p-6">
+            <h1 className="text-lg font-semibold">Комната {roomId}</h1>
+            <CollaborativeCodeEditor
+                kind="room"
+                roomId={roomId}
+                className="h-[calc(100dvh-180px)] min-h-[380px]"
+            />
+        </div>
+    );
 }

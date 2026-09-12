@@ -1,13 +1,13 @@
 'use client';
 
-import { useProfileDirectory } from '../model/useProfileDirectory';
+import { useParticipantsDirectory } from '../model/useParticipantsDirectory';
 import { DirectoryFilters } from './DirectoryFilters';
 import { EmptyParticipants } from './EmptyParticipants';
 import { MyCardDialog } from './MyCardDialog';
 import { ParticipantCard } from './ParticipantCard/ParticipantCard';
 import { ParticipantSearch } from './ParticipantSearch';
 
-export function ProfileDirectory() {
+export function ParticipantsDirectory() {
     const {
         query,
         setQuery,
@@ -22,7 +22,7 @@ export function ProfileDirectory() {
         notice,
         resetFilters,
         toggleResponse,
-    } = useProfileDirectory();
+    } = useParticipantsDirectory();
 
     return (
         <section

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import { Spinner } from '~&/shared/ui/spinner';
 
-import { ProfileDirectory } from './ProfileDirectory';
+import { ProfileOverview } from './ProfileOverview';
 
 export const metadata: Metadata = {
     description:
-        'Найдите партнёра для технического интервью по стеку, уровню и роли. Просматривайте карточки участников и свою карточку.',
+        'Личная информация, стек технологий, статистика собеседований и достижения. Управляйте своим профилем и настройками.',
     keywords: [
         'профиль пользователя',
         'личный кабинет',
@@ -35,5 +37,16 @@ export const metadata: Metadata = {
 };
 
 export function ProfilePage() {
-    return <ProfileDirectory />;
+    return (
+        <Suspense
+            fallback={
+                <div className="text-muted-foreground flex items-center gap-2">
+                    <Spinner />
+                    Загрузка профиля
+                </div>
+            }
+        >
+            <ProfileOverview />
+        </Suspense>
+    );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { PracticePanelRoom } from '~&/widgets/practice-panel-room';
 
 export const metadataPanel: Metadata = {
     description:
@@ -32,5 +33,5 @@ export const metadataPanel: Metadata = {
 };
 
 export function PracticePanelPage() {
-    return <div>PracticePanelPage</div>;
+    return <PracticePanelRoom />;
 }

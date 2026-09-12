@@ -43,18 +43,13 @@ export const ParticipantsPanelAvatar = ({
     const { content, name, hue } = participant;
 
     return (
-        <div
-            className={cn(
-                'relative grid size-8 shrink-0 place-items-center rounded-lg select-none',
-                className,
-            )}
-            style={{
-                background: `linear-gradient(150deg, hsl(${hue} 46% 20%), #0d0f13)`,
-            }}
-        >
+        <div className={cn('flex shrink-0 flex-col items-center gap-1', className)}>
             <div
-                className="grid place-items-center"
-                style={{ color: `hsl(${hue} 85% 76%)` }}
+                className="grid size-8 place-items-center rounded-lg select-none"
+                style={{
+                    background: `linear-gradient(150deg, hsl(${hue} 46% 20%), #0d0f13)`,
+                    color: `hsl(${hue} 85% 76%)`,
+                }}
             >
                 {typeof content === 'string' ? (
                     <span className="text-sm font-bold">{content}</span>
@@ -64,7 +59,10 @@ export const ParticipantsPanelAvatar = ({
             </div>
 
             {name && (
-                <span className="text-foreground-muted absolute bottom-1 left-1 hidden font-mono text-[9px] md:block">
+                <span
+                    className="hidden text-center font-mono text-[9px] leading-none md:block"
+                    style={{ color: `hsl(${hue} 85% 76%)` }}
+                >
                     {name}
                 </span>
             )}

@@ -12,6 +12,7 @@ interface RouteRecord {
 
 export const ROUTES = {
     AUTH: {
+        OAUTH: '/oauth',
         SIGN_IN: '/sign-in',
         SIGN_UP: '/sign-up',
     },
@@ -25,11 +26,13 @@ export const ROUTES = {
     HOME: '/',
     LEADERS: '/leaders',
     NOTIFICATIONS: '/notifications',
+    PARTICIPANTS: '/participants',
     PRACTICE: {
+        ARENA: '/practice/coding',
         BEHAVIORAL: '/practice/behavioral',
         DESIGN: '/practice/system-design',
         LANGUAGE: '/practice/language',
-        LIVE: '/practice/coding',
+        LIVE: '/practice/one-to-one',
         PANEL: '/practice/panel',
         ROOT: '/practice',
         SOLO: '/practice/solo',
@@ -78,6 +81,13 @@ export const NAV_ITEMS: NavItem[] = [
         label: 'Практика',
         menu: true,
         path: ROUTES.PRACTICE.ROOT,
+    },
+    {
+        description: 'Поиск партнёров для технических интервью',
+        icon: 'UsersIcon',
+        label: 'Участники',
+        menu: true,
+        path: ROUTES.PARTICIPANTS,
     },
     {
         description: 'Личные данные, настройки и предпочтения',
@@ -166,6 +176,12 @@ export const NAV_ITEMS: NavItem[] = [
         path: ROUTES.ROOM.CREATE,
     },
     {
+        description: 'Совместный редактор кода в реальном времени',
+        icon: 'CodeBlock',
+        label: 'Лайвкодинг',
+        path: (id: string) => ROUTES.ROOM.SESSION(id),
+    },
+    {
         description: 'Присоединение к существующей комнате',
         label: (id: string) => `Присоединение к комнате #${id}`,
         path: (id: string) => ROUTES.ROOM.JOIN(id),
@@ -181,6 +197,11 @@ export const NAV_ITEMS: NavItem[] = [
         icon: 'Crown',
         label: 'Лидеры',
         path: ROUTES.LEADERS,
+    },
+    {
+        description: 'Соревнование 1x1 на скорость и корректность решения',
+        label: 'Coding Arena',
+        path: ROUTES.PRACTICE.ARENA,
     },
 ];
 
@@ -199,15 +220,25 @@ export const BREADCRUMBS: {
     description: string;
 }[] = NAV_ITEMS.map(({ path, label, description }) => ({ description, label, path }));
 
-export const getRouteUrl = (
-    route: Route | ((...args: unknown[]) => Route),
-    ...args: unknown[]
-): Route => {
+export const getRouteUrl = (route: Route | RouteFunction, ...args: unknown[]): Route => {
     if (typeof route === 'function') {
-        return route(...args) as Route;
+        return (route as (...params: unknown[]) => Route)(...args);
     }
     return route;
 };
 
 export const isDynamicRoute = (route: Route | RouteFunction): route is RouteFunction =>
     typeof route === 'function';
+
+export const getBreadcrumb = (pathname: string, param = '') => {
+    const exact = BREADCRUMBS.find((item) => item.path === pathname);
+    if (exact) {
+        return exact;
+    }
+
+    return BREADCRUMBS.filter((item) => isDynamicRoute(item.path))
+        .map((item) => ({ item, url: getRouteUrl(item.path, param) }))
+        .filter(({ url }) => url === pathname)
+        .sort((left, right) => right.url.length - left.url.length)
+        .at(0)?.item;
+};

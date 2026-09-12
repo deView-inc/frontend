@@ -44,7 +44,7 @@ function useParticipantFilters() {
     };
 }
 
-export function useProfileDirectory() {
+export function useParticipantsDirectory() {
     const filters = useParticipantFilters();
     const [responses, setResponses] = useState<string[]>([]);
     const [notice, setNotice] = useState('');
