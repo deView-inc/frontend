@@ -24,7 +24,7 @@ export const practiceModes: PracticeMode[] = [
         cta: 'Найти комнату',
         description:
             'Живое собеседование с реальным партнёром: видео, общий редактор, взаимный фидбэк.',
-        href: '/practice/one-to-one',
+        href: '/room/create',
         icon: UsersIcon,
         tags: ['Видео + код', 'Peer review'],
         title: '1-to-1 Live',
