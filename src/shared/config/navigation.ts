@@ -26,6 +26,7 @@ export const ROUTES = {
     HOME: '/',
     LEADERS: '/leaders',
     NOTIFICATIONS: '/notifications',
+    PARTICIPANTS: '/participants',
     PRACTICE: {
         ARENA: '/practice/coding',
         BEHAVIORAL: '/practice/behavioral',
@@ -82,9 +83,16 @@ export const NAV_ITEMS: NavItem[] = [
         path: ROUTES.PRACTICE.ROOT,
     },
     {
+        description: 'Поиск партнёров для технических интервью',
+        icon: 'UsersIcon',
+        label: 'Участники',
+        menu: true,
+        path: ROUTES.PARTICIPANTS,
+    },
+    {
         description: 'Личные данные, настройки и предпочтения',
         icon: 'UserIcon',
-        label: 'Профиль',
+        label: 'Личный кабинет',
         menu: true,
         path: ROUTES.PROFILE.ROOT,
     },
