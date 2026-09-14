@@ -19,7 +19,7 @@ export function Header() {
         typeof routeMeta?.label === 'function' ? routeMeta.label(param) : routeMeta?.label;
 
     return (
-        <header className="bg-background z-10 flex h-auto shrink-0 items-center justify-between border-b px-8 py-3.5 transition-[width,height]">
+        <header className="bg-background z-10 flex h-auto shrink-0 flex-wrap items-center justify-between gap-3 border-b px-8 py-3.5 transition-[width,height]">
             <div className="flex flex-col">
                 <h1 className="text-lg leading-tight font-bold">
                     {label ?? 'Неизвестная страница'}
@@ -28,7 +28,7 @@ export function Header() {
                     {routeMeta?.description}
                 </p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex max-w-full min-w-0 gap-4">
                 <GlobalSearch />
                 <NotificationBell />
             </div>
