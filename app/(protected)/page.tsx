@@ -1,1 +1,1 @@
-export { RootPage as default } from '~&/pages/root';
+export { RootPage as default, metadata } from '~&/pages/root';

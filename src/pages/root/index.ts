@@ -1,1 +1,1 @@
-export * from './ui/RootPage';
+export { RootPage, metadata } from './ui/RootPage';
