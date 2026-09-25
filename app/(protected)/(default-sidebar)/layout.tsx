@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import React from 'react';
 import { SidebarLayout } from '~&/app/layouts/SidebarLayout';
 import { SIDEBAR_COOKIE_NAME } from '~&/shared/ui';
 

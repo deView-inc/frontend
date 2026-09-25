@@ -43,12 +43,11 @@ export async function generateMetadata({ params }: RoomSessionPageProps): Promis
 export async function RoomSessionPage({ params }: RoomSessionPageProps) {
     const { roomId } = await params;
     return (
-        <div className="flex min-w-0 flex-1 flex-col gap-4 p-4 md:p-6">
-            <h1 className="text-lg font-semibold">Комната {roomId}</h1>
+        <div className="flex h-full min-h-0 min-w-0 flex-1 flex-col gap-4">
             <CollaborativeCodeEditor
                 kind="room"
                 roomId={roomId}
-                className="h-[calc(100dvh-180px)] min-h-[380px]"
+                className="min-h-[380px] flex-1"
             />
         </div>
     );

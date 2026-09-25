@@ -55,7 +55,7 @@ export const ROUTES = {
 interface NavItem {
     path: ((params: string) => Route) | Route;
     label: ((params: string) => string) | string;
-    description: string;
+    description?: string;
     icon?: PhosphorIconName;
     menu?: boolean;
 }
@@ -176,9 +176,8 @@ export const NAV_ITEMS: NavItem[] = [
         path: ROUTES.ROOM.CREATE,
     },
     {
-        description: 'Совместный редактор кода в реальном времени',
         icon: 'CodeBlock',
-        label: 'Лайвкодинг',
+        label: 'Собеседование · созвон',
         path: (id: string) => ROUTES.ROOM.SESSION(id),
     },
     {
@@ -217,7 +216,7 @@ export const MENU: {
 export const BREADCRUMBS: {
     path: Route | ((id: string) => Route);
     label: string | ((id: string) => string);
-    description: string;
+    description?: string;
 }[] = NAV_ITEMS.map(({ path, label, description }) => ({ description, label, path }));
 
 export const getRouteUrl = (route: Route | RouteFunction, ...args: unknown[]): Route => {
