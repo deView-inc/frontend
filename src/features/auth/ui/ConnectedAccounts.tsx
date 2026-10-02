@@ -2,7 +2,8 @@
 
 import { GithubLogoIcon, GoogleLogoIcon } from '@phosphor-icons/react';
 import { useCallback, useEffect, useState } from 'react';
-import { Button, Spinner } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { Spinner } from '~&/shared/ui/spinner';
 
 import {
     connectOAuthProvider,

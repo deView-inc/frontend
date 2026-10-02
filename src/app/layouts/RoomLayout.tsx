@@ -1,27 +1,31 @@
+'use client';
+
 import * as React from 'react';
-import { Sidebar, SidebarInset, SidebarProvider } from '~&/shared/ui';
+import { SidebarInset } from '~&/shared/ui';
 import { RoomHeader, RoomFooter } from '~&/widgets/layout';
+import { LeftSidebar, RightSidebar } from '~&/widgets/room-sidebar';
+import { SessionPanelProvider } from '~&/widgets/session-panel/model/session-panel-context';
+import { TaskPanelProvider } from '~&/widgets/task-panel/model/task-panel-context';
 
-export function RoomLayout({ children, ...props }: React.ComponentProps<typeof SidebarProvider>) {
+export function RoomLayout({ children }: React.PropsWithChildren) {
     return (
-        <div className="flex h-svh flex-col overflow-hidden">
-            <RoomHeader />
+        <TaskPanelProvider>
+            <SessionPanelProvider>
+                <div className="flex h-svh flex-col overflow-hidden">
+                    <RoomHeader />
 
-            <div className="relative min-h-0 flex-1 [transform:translateZ(0)]">
-                <SidebarProvider
-                    {...props}
-                    className="h-full min-h-0"
-                >
-                    <Sidebar side="left" />
+                    <div className="relative flex min-h-0 flex-1 [transform:translateZ(0)]">
+                        <LeftSidebar />
 
-                    <SidebarInset className="flex h-full min-h-0 flex-col overflow-y-auto">
-                        <main className="min-h-0 flex-1">{children}</main>
-                        <RoomFooter />
-                    </SidebarInset>
+                        <SidebarInset className="flex h-full min-h-0 flex-1 flex-col overflow-y-auto">
+                            <main className="min-h-0 flex-1">{children}</main>
+                            <RoomFooter />
+                        </SidebarInset>
 
-                    <Sidebar side="right" />
-                </SidebarProvider>
-            </div>
-        </div>
+                        <RightSidebar />
+                    </div>
+                </div>
+            </SessionPanelProvider>
+        </TaskPanelProvider>
     );
 }

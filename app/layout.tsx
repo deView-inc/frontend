@@ -1,7 +1,7 @@
 import '~&/shared/styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
-import { SessionProvider } from '~&/features/auth';
+import { SessionProvider } from '~&/features/auth/ui/SessionProvider';
 import { cn } from '~&/shared/lib/utils';
 import { Background } from '~&/shared/ui/background';
 
