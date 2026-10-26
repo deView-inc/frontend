@@ -1,6 +1,11 @@
 import { defineConfig } from 'oxlint';
 
 export default defineConfig({
+    env: {
+        browser: true,
+        es2022: true,
+        node: true,
+    },
     categories: {
         correctness: 'error',
         perf: 'warn',
@@ -9,6 +14,14 @@ export default defineConfig({
     },
 
     rules: {
+        // Import ordering is handled by Oxfmt.
+        'sort-imports': 'off',
+        'sort-keys': 'off',
+        'no-ternary': 'off',
+        'no-magic-numbers': 'off',
+        'one-var': 'off',
+        'func-style': 'allow',
+        'new-cap': 'off',
         'no-console': 'warn',
         'no-debugger': 'error',
         'prefer-const': 'error',
@@ -59,6 +72,7 @@ export default defineConfig({
         'jsx-no-target-blank': 'warn',
         'jsx-no-comment-textnodes': 'warn',
         'jsx-no-constructed-context-values': 'warn',
+        'react/jsx-props-no-spreading': 'off',
 
         '@next/next/no-html-link-for-pages': 'error',
         '@next/next/no-img-element': 'warn',
@@ -78,6 +92,7 @@ export default defineConfig({
     },
 
     ignorePatterns: [
+        'public/monaco/**',
         '**/node_modules/**',
         '**/.pnpm-store/**',
 

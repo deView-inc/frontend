@@ -1,0 +1,20 @@
+name: 'Stale'
+
+on:
+    schedule:
+        - cron: '0 0 * * *'
+    workflow_dispatch:
+
+permissions:
+    issues: write
+    pull-requests: write
+
+jobs:
+    stale:
+        if: github.event_name == 'schedule'
+        uses: deView-inc/.github/.github/workflows/stale-cleanup.yml@master
+        with:
+            days-before-stale: 30
+            days-before-close: 5
+        secrets:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
