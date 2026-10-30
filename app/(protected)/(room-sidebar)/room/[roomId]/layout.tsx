@@ -1,6 +1,6 @@
 import React from 'react';
 import { RoomLayout } from '~&/app/layouts/RoomLayout';
-import { VideoRoomProvider } from '~&/entities/video-room';
+import { VideoRoomProvider } from '~&/widgets/room-session';
 
 interface ProtectedRoomLayoutProps extends React.PropsWithChildren {
     params: Promise<{ roomId: string }>;

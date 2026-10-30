@@ -2,7 +2,7 @@
 
 import { ArrowRightIcon, SparkleIcon } from '@phosphor-icons/react';
 import { cn } from '~&/shared/lib/utils';
-import { Input } from '~&/shared/ui';
+import { Input } from '~&/shared/ui/input';
 import type { FakeReplySource } from '~&/widgets/practice-interview-modes/lib';
 import { useAiChat } from '~&/widgets/practice-interview-modes/model/useAiChat';
 

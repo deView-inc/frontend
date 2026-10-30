@@ -1,5 +1,6 @@
 import { type ChangeEvent, useCallback } from 'react';
-import { Icon, Input } from '~&/shared/ui';
+import { Icon } from '~&/shared/ui/icon';
+import { Input } from '~&/shared/ui/input';
 
 import type { ParticipantSearchProps } from '../lib/types';
 

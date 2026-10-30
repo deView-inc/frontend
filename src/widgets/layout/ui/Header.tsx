@@ -3,7 +3,7 @@
 import { GlobalSearch } from '~&/features/global-search';
 import { NotificationBell } from '~&/features/notifications';
 import { useRouteMeta } from '~&/shared/lib/hooks';
-import { PageHeader } from '~&/shared/ui';
+import { PageHeader } from '~&/shared/ui/page-header';
 
 export function Header() {
     const { label, description } = useRouteMeta();

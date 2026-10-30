@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { CollaborativeCodeEditor } from '~&/features/collaborative-code-editor';
+import { LeftSidebar } from '~&/widgets/room-session';
+
+import { ParticipantsOverlay } from './ParticipantsOverlay';
 
 interface RoomSessionPageProps {
     params: Promise<{ roomId: string }>;
@@ -43,12 +46,16 @@ export async function generateMetadata({ params }: RoomSessionPageProps): Promis
 export async function RoomSessionPage({ params }: RoomSessionPageProps) {
     const { roomId } = await params;
     return (
-        <div className="flex h-full min-h-0 min-w-0 flex-1 flex-col gap-4">
-            <CollaborativeCodeEditor
-                kind="room"
-                roomId={roomId}
-                className="min-h-[380px] flex-1"
-            />
+        <div className="flex h-full min-h-0 min-w-0 flex-1">
+            <LeftSidebar />
+            <main className="relative flex min-h-0 min-w-0 flex-1 items-center justify-center">
+                <CollaborativeCodeEditor
+                    kind="room"
+                    roomId={roomId}
+                    className="h-full min-h-[380px] w-full"
+                />
+                <ParticipantsOverlay />
+            </main>
         </div>
     );
 }

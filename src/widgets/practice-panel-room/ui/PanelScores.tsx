@@ -1,4 +1,5 @@
-import { Badge, Card } from '~&/shared/ui';
+import { Badge } from '~&/shared/ui/badge';
+import { Card } from '~&/shared/ui/card';
 
 import { panelRoomMock } from '../lib';
 

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { cn } from '~&/shared/lib/utils';
-import { Icon, buttonVariants } from '~&/shared/ui';
+import { buttonVariants } from '~&/shared/ui/button';
+import { Icon } from '~&/shared/ui/icon';
 
 export function CreateSessionButton() {
     return (

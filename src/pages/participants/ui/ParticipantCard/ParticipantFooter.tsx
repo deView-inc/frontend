@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-import { Button, Icon } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { Icon } from '~&/shared/ui/icon';
 
 import type { ParticipantCardProps } from '../../lib/types';
 

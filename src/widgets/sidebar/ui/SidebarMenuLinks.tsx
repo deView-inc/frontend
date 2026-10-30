@@ -3,14 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MENU } from '~&/shared/config';
+import { Icon } from '~&/shared/ui/icon';
 import {
-    Icon,
     SidebarGroup,
     SidebarGroupContent,
     SidebarGroupLabel,
     SidebarMenu,
     SidebarMenuButton,
-} from '~&/shared/ui';
+} from '~&/shared/ui/sidebar';
 
 export function SidebarMenuLinks() {
     const pathname = usePathname();

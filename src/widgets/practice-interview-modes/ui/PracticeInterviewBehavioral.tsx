@@ -1,11 +1,10 @@
 'use client';
 
-import { PracticeInterviewHeader } from '~&/widgets/practice-interview-modes';
-
 import { type InterviewCompetency, behavioralRoomTabs } from '../lib';
 import { usePracticeInterviewTab } from '../model/usePracticeInterviewSelection';
 import { PracticeInterviewAiChat } from './parts/PracticeInterviewAiChat';
 import { PracticeInterviewCompetencyRadar } from './parts/PracticeInterviewCompetencyRadar';
+import { PracticeInterviewHeader } from './parts/PracticeInterviewHeader';
 import { PracticeInterviewStarBreakdown } from './parts/PracticeInterviewStarBreakdown';
 import { PracticeInterviewTabsGroup } from './parts/PracticeInterviewTabsGroup';
 

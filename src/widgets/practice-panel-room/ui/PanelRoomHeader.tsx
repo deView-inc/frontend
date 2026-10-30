@@ -1,4 +1,4 @@
-import { Title } from '~&/shared/ui';
+import { Title } from '~&/shared/ui/title';
 
 import { panelRoomMock } from '../lib';
 

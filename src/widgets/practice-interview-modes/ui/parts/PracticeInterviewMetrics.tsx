@@ -1,5 +1,5 @@
 import { cn } from '~&/shared/lib/utils';
-import { Card } from '~&/shared/ui';
+import { Card } from '~&/shared/ui/card';
 import type { languageInterface } from '~&/widgets/practice-interview-modes/lib';
 
 interface Props {

@@ -2,7 +2,8 @@
 
 import { ArrowRightIcon, SparkleIcon, UserIcon } from '@phosphor-icons/react';
 import { useMemo } from 'react';
-import { Button, Card } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { Card } from '~&/shared/ui/card';
 import { Section } from '~&/shared/ui/section';
 
 import { type FakeReplySource, type InterviewStyle, aiSoloTabs } from '../lib';

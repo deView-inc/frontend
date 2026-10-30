@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
     keywords:
         'онлайн собеседования, deView, платформа для собеседований, технические интервью, совместный просмотр кода, рекрутинг, найм, video interview, code interview',
-    manifest: '/meta/manifest.json',
+    manifest: '/meta/site.webmanifest',
     openGraph: {
         description:
             'Проводите технические интервью эффективно: совместный редактор кода, видеозвонки, оценка навыков и удобный процесс найма в одном месте.',

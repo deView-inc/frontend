@@ -10,7 +10,7 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import { cn } from '~&/shared/lib/utils';
-import { Card } from '~&/shared/ui';
+import { Card } from '~&/shared/ui/card';
 import type { CompetencyKey } from '~&/widgets/practice-interview-modes/lib/radar-config';
 import {
     RADAR_OPTIONS,

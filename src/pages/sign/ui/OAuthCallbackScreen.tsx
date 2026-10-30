@@ -11,7 +11,8 @@ import {
     useSession,
 } from '~&/features/auth';
 import { ROUTES } from '~&/shared/config';
-import { Button, Spinner } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { Spinner } from '~&/shared/ui/spinner';
 
 const exchangedTokens = new Set<string>();
 

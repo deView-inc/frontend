@@ -1,14 +1,14 @@
+import { Badge } from '~&/shared/ui/badge';
+import { Button } from '~&/shared/ui/button';
 import {
-    Badge,
-    Button,
     Card,
     CardContent,
     CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
-    Icon,
-} from '~&/shared/ui';
+} from '~&/shared/ui/card';
+import { Icon } from '~&/shared/ui/icon';
 
 import type { RoomCreateFormModel } from '../../model/useRoomCreateForm';
 

@@ -1,6 +1,5 @@
 'use client';
-
-import { Tabs, TabsList, TabsTrigger } from '~&/shared/ui';
+import { Tabs, TabsList, TabsTrigger } from '~&/shared/ui/tabs';
 
 export interface PracticeInterviewTabsOption {
     value: string;

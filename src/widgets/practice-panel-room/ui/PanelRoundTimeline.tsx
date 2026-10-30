@@ -2,7 +2,7 @@
 
 import { ChatCircleIcon, CheckIcon, SquareIcon } from '@phosphor-icons/react';
 import { cn } from '~&/shared/lib/utils';
-import { Card } from '~&/shared/ui';
+import { Card } from '~&/shared/ui/card';
 
 import { type PanelRoundStage, panelRoomMock } from '../lib';
 

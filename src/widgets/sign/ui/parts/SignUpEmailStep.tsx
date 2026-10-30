@@ -3,7 +3,11 @@ import Link from 'next/link';
 import { OAuthButtons } from '~&/features/auth';
 import { ROUTES } from '~&/shared/config';
 import { cn } from '~&/shared/lib/utils';
-import { Button, Checkbox, Field, FieldError, FieldLabel, Input, Spinner } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { Checkbox } from '~&/shared/ui/checkbox';
+import { Field, FieldError, FieldLabel } from '~&/shared/ui/field';
+import { Input } from '~&/shared/ui/input';
+import { Spinner } from '~&/shared/ui/spinner';
 
 import { AUTH_BUTTON_CLASS } from '../../lib';
 import type { SignUpFlowModel } from '../../model/useSignUpFlow';

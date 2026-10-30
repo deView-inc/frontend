@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import { Spinner } from '~&/shared/ui';
+import { Spinner } from '~&/shared/ui/spinner';
 
 import { OAuthCallbackScreen } from './OAuthCallbackScreen';
 

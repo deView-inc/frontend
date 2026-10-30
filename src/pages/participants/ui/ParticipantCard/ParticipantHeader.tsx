@@ -1,5 +1,6 @@
 import { cn } from '~&/shared/lib/utils';
-import { Avatar, AvatarFallback, Badge } from '~&/shared/ui';
+import { Avatar, AvatarFallback } from '~&/shared/ui/avatar';
+import { Badge } from '~&/shared/ui/badge';
 
 import { PARTICIPANT_LEVEL_CLASSES } from '../../lib/constants';
 import type { ParticipantDetailsProps } from '../../lib/types';

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { cn } from '~&/shared/lib/utils';
-import { Badge, Icon, buttonVariants } from '~&/shared/ui';
+import { Badge } from '~&/shared/ui/badge';
+import { buttonVariants } from '~&/shared/ui/button';
+import { Icon } from '~&/shared/ui/icon';
 
 import { useNotifications } from '../model/useNotifications';
 

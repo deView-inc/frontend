@@ -1,7 +1,10 @@
 import { ArrowLeftIcon } from '@phosphor-icons/react';
 import type { FormEvent } from 'react';
 import { cn } from '~&/shared/lib/utils';
-import { Button, FieldError, InputOTP, InputOTPGroup, InputOTPSlot, Spinner } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { FieldError } from '~&/shared/ui/field';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '~&/shared/ui/input';
+import { Spinner } from '~&/shared/ui/spinner';
 
 const OTP_LENGTH = 6;
 const OTP_INDEXES = [0, 1, 2, 3, 4, 5] as const;

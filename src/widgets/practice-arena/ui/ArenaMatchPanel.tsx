@@ -1,5 +1,6 @@
 import { cn } from '~&/shared/lib/utils';
-import { Card, Glow } from '~&/shared/ui';
+import { Card } from '~&/shared/ui/card';
+import { Glow } from '~&/shared/ui/glow';
 
 import { arenaMock } from '../lib/arena-mock';
 import { ArenaCodeWindow } from './ArenaCodeWindow';

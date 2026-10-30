@@ -6,10 +6,8 @@ import { useSession } from '~&/features/auth';
 import { ROUTES } from '~&/shared/config';
 import { useIsMobile } from '~&/shared/lib/hooks';
 import { getUserInitials } from '~&/shared/lib/session';
+import { Avatar, AvatarFallback, AvatarImage } from '~&/shared/ui/avatar';
 import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuGroup,
@@ -17,9 +15,9 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-    Icon,
-    SidebarMenuButton,
-} from '~&/shared/ui';
+} from '~&/shared/ui/dropdown-menu';
+import { Icon } from '~&/shared/ui/icon';
+import { SidebarMenuButton } from '~&/shared/ui/sidebar';
 
 export function SidebarUser() {
     const { user } = useSession();

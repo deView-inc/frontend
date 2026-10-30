@@ -3,7 +3,7 @@
 import { GithubLogoIcon, GoogleLogoIcon } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
 import { cn } from '~&/shared/lib/utils';
-import { Button } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
 
 import { getOAuthProviders, getOAuthStartUrl } from '../api/endpoints';
 import type { OAuthProviderOption } from '../model/types';

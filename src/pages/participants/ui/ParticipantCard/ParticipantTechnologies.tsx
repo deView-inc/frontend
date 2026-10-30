@@ -1,4 +1,4 @@
-import { Badge } from '~&/shared/ui';
+import { Badge } from '~&/shared/ui/badge';
 
 import type { ParticipantDetailsProps } from '../../lib/types';
 

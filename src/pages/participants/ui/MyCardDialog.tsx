@@ -1,12 +1,12 @@
+import { Button } from '~&/shared/ui/button';
 import {
-    Button,
     Dialog,
     DialogContent,
     DialogDescription,
     DialogTitle,
     DialogTrigger,
-    Icon,
-} from '~&/shared/ui';
+} from '~&/shared/ui/dialog';
+import { Icon } from '~&/shared/ui/icon';
 
 import { MY_CARD } from '../model/participants';
 import { ParticipantCard } from './ParticipantCard/ParticipantCard';

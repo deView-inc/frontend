@@ -23,6 +23,11 @@ const BUILD_ID = getBuildId();
 
 const nextConfig: NextConfig = {
     reactCompiler: true,
+
+    experimental: {
+        turbopackPluginRuntimeStrategy: 'workerThreads',
+    },
+
     output: 'standalone',
     typedRoutes: true,
     allowedDevOrigins: ['127.0.0.1'],

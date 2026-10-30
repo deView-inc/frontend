@@ -1,9 +1,9 @@
+import { Logo } from '~&/shared/ui/logo';
 import {
     SidebarHeader as BaseSidebarHeader,
-    Logo,
     SidebarMenu,
     SidebarMenuItem,
-} from '~&/shared/ui';
+} from '~&/shared/ui/sidebar';
 
 import { CreateSessionButton } from './CreateSessionButton';
 

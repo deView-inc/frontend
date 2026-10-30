@@ -5,7 +5,7 @@ import {
     SidebarMenu,
     SidebarMenuItem,
     SidebarRail,
-} from '~&/shared/ui';
+} from '~&/shared/ui/sidebar';
 
 import { SidebarHeader } from './SidebarHeader';
 import { SidebarMenuLinks } from './SidebarMenuLinks';

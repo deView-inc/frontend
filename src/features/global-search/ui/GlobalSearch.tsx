@@ -2,15 +2,9 @@
 
 import * as React from 'react';
 import { useKeyboard } from '~&/shared/lib/hooks';
-import {
-    Icon,
-    InputGroup,
-    InputGroupAddon,
-    InputGroupInput,
-    InputGroupText,
-    Kbd,
-    KbdGroup,
-} from '~&/shared/ui';
+import { Icon } from '~&/shared/ui/icon';
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '~&/shared/ui/input';
+import { Kbd, KbdGroup } from '~&/shared/ui/kbd';
 
 import { GlobalSearchDialog } from './GlobalSearchDialog';
 

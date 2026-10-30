@@ -4,7 +4,11 @@ import type { Route } from 'next';
 import Link from 'next/link';
 import { OAuthButtons } from '~&/features/auth';
 import { cn } from '~&/shared/lib/utils';
-import { Button, Checkbox, Field, FieldError, FieldLabel, Input, Spinner } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { Checkbox } from '~&/shared/ui/checkbox';
+import { Field, FieldError, FieldLabel } from '~&/shared/ui/field';
+import { Input } from '~&/shared/ui/input';
+import { Spinner } from '~&/shared/ui/spinner';
 
 import { AUTH_BUTTON_CLASS, SIGN_COPY, type SignMode } from '../../lib';
 import { useSignForm } from '../../model/useSignForm';

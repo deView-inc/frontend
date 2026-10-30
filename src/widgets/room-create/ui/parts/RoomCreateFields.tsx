@@ -1,11 +1,12 @@
+import { Card, CardContent } from '~&/shared/ui/card';
 import {
-    Card,
-    CardContent,
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
+} from '~&/shared/ui/dropdown-menu';
+import {
     Field,
     FieldContent,
     FieldDescription,
@@ -13,9 +14,9 @@ import {
     FieldLegend,
     FieldSet,
     FieldTitle,
-    Input,
-    Switch,
-} from '~&/shared/ui';
+} from '~&/shared/ui/field';
+import { Input } from '~&/shared/ui/input';
+import { Switch } from '~&/shared/ui/switch';
 
 import { DEFAULT_ROOM_NAME, DIFFICULTIES, EXTRA_LANGUAGES, PRIMARY_LANGUAGES } from '../../lib';
 import type { RoomCreateFormModel } from '../../model/useRoomCreateForm';

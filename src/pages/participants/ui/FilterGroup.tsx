@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { cn } from '~&/shared/lib/utils';
-import { Button } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
 
 interface FilterGroupProps<Value extends string> {
     label: string;

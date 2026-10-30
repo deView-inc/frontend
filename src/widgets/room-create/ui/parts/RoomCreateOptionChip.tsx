@@ -1,6 +1,6 @@
 import { type ComponentProps } from 'react';
 import { cn } from '~&/shared/lib/utils';
-import { Button } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
 
 export function RoomCreateOptionChip({
     selected,

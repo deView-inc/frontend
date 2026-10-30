@@ -7,7 +7,7 @@ import {
     ClockIcon,
     StarFourIcon,
 } from '@phosphor-icons/react';
-import { Card } from '~&/shared/ui';
+import { Card } from '~&/shared/ui/card';
 
 import { panelRoomMock } from '../lib';
 

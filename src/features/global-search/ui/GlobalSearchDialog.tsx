@@ -1,4 +1,4 @@
-import { Command, CommandDialog, CommandInput } from '~&/shared/ui';
+import { Command, CommandDialog, CommandInput } from '~&/shared/ui/command';
 
 import { GlobalSearchList } from './GlobalSearchList';
 

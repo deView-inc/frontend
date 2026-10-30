@@ -1,5 +1,8 @@
 import { cn } from '~&/shared/lib/utils';
-import { Button, Field, FieldError, FieldLabel, Input, Spinner } from '~&/shared/ui';
+import { Button } from '~&/shared/ui/button';
+import { Field, FieldError, FieldLabel } from '~&/shared/ui/field';
+import { Input } from '~&/shared/ui/input';
+import { Spinner } from '~&/shared/ui/spinner';
 
 import {
     AUTH_BUTTON_CLASS,

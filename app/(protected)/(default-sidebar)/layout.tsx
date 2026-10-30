@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import React from 'react';
 import { SidebarLayout } from '~&/app/layouts/SidebarLayout';
-import { SIDEBAR_COOKIE_NAME } from '~&/shared/ui';
+import { SIDEBAR_COOKIE_NAME } from '~&/shared/ui/sidebar';
 
 export default async function ProtectedLayout({ children }: React.PropsWithChildren) {
     const cookiesData = await cookies();

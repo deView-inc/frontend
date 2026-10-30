@@ -2,14 +2,8 @@ import type { Route } from 'next';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { NAV_ITEMS } from '~&/shared/config';
-import {
-    CommandEmpty,
-    CommandGroup,
-    CommandItem,
-    CommandList,
-    Icon,
-    type PhosphorIconName,
-} from '~&/shared/ui';
+import { CommandEmpty, CommandGroup, CommandItem, CommandList } from '~&/shared/ui/command';
+import { Icon, type PhosphorIconName } from '~&/shared/ui/icon';
 
 export function GlobalSearchList() {
     const router = useRouter();

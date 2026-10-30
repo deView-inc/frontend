@@ -1,6 +1,5 @@
 'use client';
-
-import { Card } from '~&/shared/ui';
+import { Card } from '~&/shared/ui/card';
 
 import type { ParticipantCardProps } from '../../lib/types';
 import { ParticipantFooter } from './ParticipantFooter';
